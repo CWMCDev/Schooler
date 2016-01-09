@@ -3,8 +3,9 @@ $title = "Profile";
 include_once("header.php");
 ?>
 <div>
-	<input type="text" palceholder="Token">
-		<button type="submit" class="btn btn-default">Submit</button>
+  <label for="zportal_code">Token</label>
+	<input type="text">
+	<button type="submit" class="btn btn-default">Submit</button>
 </div>
 <?php
 echo 'hi';
