@@ -7,9 +7,15 @@ $error = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if (!empty($_POST['username']) && !empty($_POST['password'])) {
-    $json = file_get_contents('http://86.107.110.214/auth/register/'. $_POST['username'] .'/' . $_POST['password']);
+    $user = $_POST['username'];
+    if (substr($user,0,2) == 'cc'){
+      $user = substr($_POST['username'],2);
+    }
+
+    $json = file_get_contents('http://86.107.110.214/auth/register/'. $user .'/' . $_POST['password']);
     $obj = json_decode($json);
     if (isset($obj->token)){
+      setcookie('id', "cc".$user, time() + (60 * 60 * 24 * 365), "/");
       setcookie('token', $obj->token, time() + (60 * 60 * 24 * 365), "/");
       header('Location: dashboard.php');
     } else {

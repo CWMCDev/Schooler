@@ -4,7 +4,7 @@ if(!isset($title) || !$title){
   exit;
 }
 
-if(!isset($_COOKIE['token'])) {
+if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
   // NO Token found
   header('Location: index.php?noToken=true');
 }
