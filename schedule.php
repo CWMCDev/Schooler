@@ -22,7 +22,7 @@ if (isset($_COOKIE['ztoken'])) {
   ?>
   <script type="text/javascript">document.getElementById('ztoken').style.display = 'none';</script>
   <?php
-
+}
 ?>
 
 
