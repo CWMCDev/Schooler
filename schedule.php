@@ -4,7 +4,7 @@ include_once("header.php");
 ?>
 <div>
   <label for="zportal_code">Token</label>
-	<input type="text">
+	<input id="zportal_code" type="text">
 	<button type="submit" class="btn btn-default">Submit</button>
 </div>
 <?php
