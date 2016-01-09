@@ -8,7 +8,7 @@ $json = file_get_contents('http://86.107.110.214/portal/students/classlist/'.$_C
     $obj = json_decode($json);
     if (isset($obj->classList)){
   			Echo '<p>'.$obj->classList->name.'</p>';
-  			Echo '<p>'.$obj->classlist->id.'</p>';
+  			Echo '<p>'.$obj->classList->id.'</p>';
     } else {
       $error = "Ongeldige gebruikersnaam of wachtwoord!";
     }
