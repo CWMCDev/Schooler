@@ -11,7 +11,6 @@ $json = file_get_contents('http://86.107.110.214/portal/students/classlist/'.$_C
           echo '<p>'.$person->name.'</p>';
           echo '<p>'.$person->id.'</p>';
         }
-  			
     } else {
       $error = "Ongeldige gebruikersnaam of wachtwoord!";
     }
