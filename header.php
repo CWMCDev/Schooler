@@ -49,7 +49,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
               <li><a href="#">Cijfers</a></li>
               <li><a href="#">Presentie</a></li>
               <li><a href="#">Klassenlijst</a></li>
-              <li><a href="#">Profiel</a></li>
+              <li><a href="profile.php">Profiel</a></li>
             </ul>
           </li> <!--dropdown-->
           <li><a href="http://foto.ccweb.nl" target="_blank">Activiteiten</a></li> 
