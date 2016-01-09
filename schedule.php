@@ -2,7 +2,9 @@
 $title = "Profile";
 include_once("header.php");
 ?>
-
+<div>
+	<input type="text" palceholder="Token">
+</div>
 <?php
 echo 'hi';
 ?>
