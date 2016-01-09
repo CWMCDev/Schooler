@@ -82,11 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
       <input type="username" id="username" name="username" class="form-control" placeholder="Leerlingnummer" required <?php if(empty($_POST['username'])){echo "autofocus";} ?> value=<?php if(!empty($_POST['username'])){echo $_POST['username'];} ?>>
       <label for="password" class="sr-only">Password</label>
       <input type="password" id="password" name="password" class="form-control" placeholder="Password" required <?php if(!empty($_POST['username'])){echo "autofocus";} ?>>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" value="remember-me"> Remember me
-        </label>
-      </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
     </form>
 
