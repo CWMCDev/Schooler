@@ -46,7 +46,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
           <li class="dropdown">
             <a href="#" data-toggle="dropdown">Student<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Cijfers</a></li>
+              <li><a href="cijfers.php">Cijfers</a></li>
               <li><a href="#">Presentie</a></li>
               <li><a href="#">Klassenlijst</a></li>
               <li><a href="profile.php">Profiel</a></li>
