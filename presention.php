@@ -4,7 +4,7 @@ include_once("header.php");
 ?>
 
 <?php
-$json = file_get_contents('http://86.107.110.214/portal/students/profile/'.$_COOKIE['id'].'/'.$_COOKIE['token']);
+$json = file_get_contents('http://86.107.110.214/portal/students/presention/'.$_COOKIE['id'].'/'.$_COOKIE['token']);
     $obj = json_decode($json);
     
     echo '<br><br>';
