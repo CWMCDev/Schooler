@@ -47,12 +47,13 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
             <a href="#" data-toggle="dropdown">Student<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="cijfers.php">Cijfers</a></li>
-              <li><a href="#">Presentie</a></li>
-              <li><a href="#">Klassenlijst</a></li>
+              <li><a href="presention.php">Presentie</a></li>
+              <li><a href="classlist.php">Klassenlijst</a></li>
               <li><a href="profile.php">Profiel</a></li>
             </ul>
           </li> <!--dropdown-->
           <li><a href="http://foto.ccweb.nl" target="_blank">Activiteiten</a></li> 
+          <li><a href="schedule.php">Rooster</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="index.php?destroySession=true"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
