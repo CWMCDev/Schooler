@@ -42,7 +42,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
       </div> <!-- narbar-header -->
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="#">Dashboard</a></li>
+          <li><a href="dashboard.php">Dashboard</a></li>
           <li class="dropdown">
             <a href="#" data-toggle="dropdown">Student<span class="caret"></span></a>
             <ul class="dropdown-menu">

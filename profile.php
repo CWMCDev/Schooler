@@ -11,9 +11,9 @@ $json = file_get_contents('http://86.107.110.214/portal/students/profile/'.$_COO
       echo '<h1>'.$obj->student->studentnumber.'</h1>';
       echo '<h1>'.$obj->student->class.'</h1>';
       echo '<h1>'.$obj->student->birthdate.'</h1>';
+      echo '<h1>'.$obj->student->adress->street.'</h1>';
       echo '<h1>'.$obj->student->phonenumbers->home.'</h1>';
       echo '<h1>'.$obj->student->phonenumbers->mobile.'</h1>';
-      echo '<h1>'.$obj->student->adress->street.'</h1>';
       echo '<h1>'.$obj->student->adress->zipcode.'</h1>';
       echo '<h1>'.$obj->student->adress->place.'</h1>';
       echo '<h1>'.$obj->student->mentor->name.'</h1>';
