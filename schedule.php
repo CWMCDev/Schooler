@@ -2,7 +2,7 @@
 $title = "Profile";
 include_once("header.php");
 ?>
-<div>
+<div id="ztoken">
   <label for="zportal_code">Token</label>
 	<input id="zportal_code" type="text">
 	<button type="submit" class="btn btn-default">Submit</button>
