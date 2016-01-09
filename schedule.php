@@ -1,14 +1,28 @@
 <?php
 $title = "Profile";
 include_once("header.php");
+
+if(isset($_POST["code"])) {
+  $json = file_get_contents('http://86.107.110.214/zportal/settoken/'.$_POST["code"]);
+  $obj = json_decode($json);
+  if (!isset($obj->error)){
+    setcookie('ztoken', $obj->token, time() + (60 * 60 * 24 * 365), "/");
+  }
+}
 ?>
+
 <div id="ztoken">
-  <label for="zportal_code">Token</label>
-	<input id="zportal_code" type="text">
-	<button type="submit" class="btn btn-default">Submit</button>
+  <form action="index.php" method="post">
+    <input name="code" id="zportal_code" type="text" placeholder="Token">
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
 </div>
 <?php
-echo 'hi';
+if (isset($_COOKIE['ztoken'])) {
+  ?>
+  <script type="text/javascript">document.getElementById('ztoken').style.display = 'none';</script>
+  <?php
+
 ?>
 
 
