@@ -36,7 +36,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
           <span class="icon-bar"></span>
           <span class="icon-bar"></span> 
         </button>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="dashboard.php">
           <img src="images/schooler_logo.jpg" alt="Brand" id="dashboard-logo"/>
         </a>
       </div> <!-- narbar-header -->
