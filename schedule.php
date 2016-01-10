@@ -2,29 +2,31 @@
 $title = "Profile";
 include_once("header.php");
 
+$isCodeSet = false;
+if (isset($_COOKIE['ztoken'])) {
+  $isCodeSet = true;
+}
 if(!empty($_POST["code"])) {
   $json = file_get_contents('http://86.107.110.214/zportal/settoken/'.$_POST["code"]);
   $obj = json_decode($json);
   if (!isset($obj->error)){
     setcookie('ztoken', $obj->token, time() + (60 * 60 * 24 * 365), "/");
+    $isCodeSet = true;
   }
 }
 ?>
 
 <div id="ztoken">
-  <form action="schedule.php" method="post">
+  <form action="index.php" method="post">
     <input name="code" id="zportal_code" type="text" placeholder="Token">
-    <input type="submit" class="btn btn-default" value="Submit">
+    <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>
 <?php
-if (isset($_COOKIE['ztoken'])) {
-  ?>
-  <script type="text/javascript">document.getElementById('ztoken').style.display = 'none';</script>
-  <?php
+if ($isCodeSet) {
+  echo '<script type="text/javascript">document.getElementById(\'ztoken\').style.display = \'none\';</script>';
 }
 ?>
-
 
 <?php
 include_once("footer.php");
