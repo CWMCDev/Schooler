@@ -12,7 +12,7 @@ if(isset($_POST["code"])) {
 ?>
 
 <div id="ztoken">
-  <form action="index.php" method="post">
+  <form action="schedule.php" method="post">
     <input name="code" id="zportal_code" type="text" placeholder="Token">
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
