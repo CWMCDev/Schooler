@@ -1,6 +1,7 @@
 <?php
 if(isset($_GET['destroySession'])) {
   setcookie('token', '', time()-3600);
+  setcookie('ztoken', '', time()-3600);
 }
 
 $error = null;
