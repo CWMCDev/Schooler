@@ -2,7 +2,7 @@
 $title = "Profile";
 include_once("header.php");
 
-if(isset($_POST["code"])) {
+if(!empty($_POST["code"])) {
   $json = file_get_contents('http://86.107.110.214/zportal/settoken/'.$_POST["code"]);
   $obj = json_decode($json);
   if (!isset($obj->error)){
