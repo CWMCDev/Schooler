@@ -12,7 +12,8 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/presention/'.$_COOK
     if (isset($obj->presentie)){
       foreach ($obj->presentie as $week) {
         //echo '<tr><td>'.$week->week.'</td>'; 
-        echo '<div class="col-xs-12 col-md-6"><table class="table table-striped">';
+        echo '<div class="col-xs-12 col-md-6">
+              <table class="table table-striped">';
         echo'<tr><th width="20px">'.$week->week.'</th><th></th>';
         for( $i = 0; $i<10; $i++ ) {
             $uur = $i + 1;
@@ -53,7 +54,8 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/presention/'.$_COOK
           echo '</tr>';
           //echo "</table></article></td>"; 
         }
-        echo '</table></div>';
+        echo '</table>
+              </div>';
       }
     } else {
       $error = "Ongeldige gebruikersnaam of wachtwoord!";
