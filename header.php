@@ -14,6 +14,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
 <html>
 <head>
 	<title>Schooler - <?php echo($title); ?></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Latest jQuery -->
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
