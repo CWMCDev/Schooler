@@ -6,3 +6,25 @@ body{
 #dashboard-logo{
 	height: 20px;
 }
+
+table {
+    border-collapse: collapse;
+}
+
+.table-nonfluid {
+   width: auto !important;
+}
+
+tr {
+	border: none;
+}
+
+td {
+  border-right: solid 1px #000000; 
+  border-left: solid 1px #000000;
+}
+
+th {
+    background-color: #9B9B9B;
+    color: white;
+}

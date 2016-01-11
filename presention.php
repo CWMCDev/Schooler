@@ -4,49 +4,57 @@ include_once("header.php");
 ?>
 
 <?php
-$json = file_get_contents('http://86.107.110.214/portal/students/presention/'.$_COOKIE['id'].'/'.$_COOKIE['token']);
+$json = file_get_contents('http://api.8t2.eu/portal/students/presention/'.$_COOKIE['id'].'/'.$_COOKIE['token']);
     $obj = json_decode($json);
     
     echo '<br><br>';
     
     if (isset($obj->presentie)){
-      echo '<table style="width:100%">';
       foreach ($obj->presentie as $week) {
         //echo '<tr><td>'.$week->week.'</td>'; 
-        foreach($week->dagen as $day) {
+        echo '<div class="col-xs-12 col-md-6"><table class="table table-striped">';
+        echo'<tr><th width="20px">'.$week->week.'</th><th></th>';
+        for( $i = 0; $i<10; $i++ ) {
+            $uur = $i + 1;
+            echo'<th>'.$uur.'</th>';
+         }
+        echo'</tr>';
+        foreach($week->dagen as $dayName => $day) {
           //echo "<td><article><table><tr><td>Uur</td><td>Status</td></tr>";
-          echo '<tr>';
+          echo '<tr><td></td><th width="80px">'.$dayName.'</th>';
           foreach($day as $hour) {
-            $bg = '';
+            $type = '';
             $msg = '';
             switch ($hour->status) {
               case 'aanw':
-                $bg = '4FD57F';
+                $type = 'success';
                 break;
               
               case 'geoorlafw';
-                $bg = '4FD57F';
-                $msg = 'geoorloofd afw';
+                $type = 'success';
+                $msg = 'GA';
+                break;
 
               case 'melding-only';
-                $bg = 'FF8C00';
-                $msg = 'Melding';
+                $type = 'warning';
+                $msg = 'Mld';
+                break;
 
               case 'afw';
-                $bg = 'FF0000';
-                $msg = 'Afwezig';
+                $type = 'danger';
+                $msg = 'Afw';
+                break;
               default:
                 # code...
                 break;
             }
-            echo '<td bgcolor='.$bg.'>'.$hour->hour."</td><td>".$hour->status.'</td>';
+            echo '<td width="40px" class='.$type.'>'.$msg.'</td>';
           }
           echo '</tr>';
           //echo "</table></article></td>"; 
         }
-        //echo '</tr>';
+        echo '</table></div>';
       }
-      echo '</table>';
     } else {
       $error = "Ongeldige gebruikersnaam of wachtwoord!";
     }
