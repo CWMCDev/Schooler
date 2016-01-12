@@ -7,7 +7,7 @@ include_once("header.php");
 $json = file_get_contents('http://api.8t2.eu/portal/students/grades/1/'.$_COOKIE['id'].'/'.$_COOKIE['token']);
     $obj = json_decode($json);
     if (isset($obj->classes)){
-      echo '<table style="width:100%">';
+      echo '<table class="table table-striped">';
       foreach ($obj->classes as $class) {
         echo '<tr><td>'.$class->text.'</td>'; 
         $gradesText = '';

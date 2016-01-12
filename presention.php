@@ -14,7 +14,7 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/presention/'.$_COOK
         //echo '<tr><td>'.$week->week.'</td>'; 
         echo '<div class="col-xs-12 col-md-6">
               <table class="table table-striped">';
-        echo'<tr><th width="20px">'.$week->week.'</th><th></th>';
+        echo'<tr><th width="20px">'.$week->week.'</th>';
         for( $i = 0; $i<10; $i++ ) {
             $uur = $i + 1;
             echo'<th>'.$uur.'</th>';
@@ -22,7 +22,7 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/presention/'.$_COOK
         echo'</tr>';
         foreach($week->dagen as $dayName => $day) {
           //echo "<td><article><table><tr><td>Uur</td><td>Status</td></tr>";
-          echo '<tr><td></td><th width="80px">'.$dayName.'</th>';
+          echo '<tr><th width="80px">'.$dayName.'</th>';
           foreach($day as $hour) {
             $type = '';
             $msg = '';
