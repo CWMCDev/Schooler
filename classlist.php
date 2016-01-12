@@ -7,10 +7,12 @@ include_once("header.php");
 $json = file_get_contents('http://api.8t2.eu/portal/students/classlist/'.$_COOKIE['id'].'/'.$_COOKIE['token']);
     $obj = json_decode($json);
     if (isset($obj->classList)){
+    	echo '<table class="table table-striped>';
         foreach ($obj->classList as $person) {
-          echo '<p>'.$person->name.'</p>';
-          echo '<p>'.$person->id.'</p>';
+          echo '<tr><td>'.$person->name.'</td>';
+          echo '<td>'.$person->id.'</td></tr>';
         }
+        echo '</table>';
     } else {
       $error = "Ongeldige gebruikersnaam of wachtwoord!";
     }
