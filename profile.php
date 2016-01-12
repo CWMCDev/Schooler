@@ -12,24 +12,10 @@ echo '<table table-striped width="100px">';
 echo '<tr><td>'.$obj->student->name.'</td></tr>';
 echo '<tr><td>Leerlingnummer</td>';
 echo '<td>'.$obj->student->studentnumber.'<td></tr>';
-
-      echo '<h1>'.$obj->student->name.'</h1>';
-      echo '<p>'.$obj->student->studentnumber.'</p>';
-      echo '<p>'.$obj->student->class.'</p>';
-      echo '<p>'.$obj->student->birthdate.'</p>';
-      echo '<p>'.$obj->student->phonenumbers->home.'</p>';
-      echo '<p>'.$obj->student->phonenumbers->mobile.'</p>';
-      echo '<p>'.$obj->adress->street.'</p>';
-      echo '<p>'.$obj->adress->zipcode.'</p>';
-      echo '<p>'.$obj->adress->place.'</p>';
-      echo '<p>'.$obj->mentor->name.'</p>';
-      echo '<p>'.$obj->mentor->abbreviation.'</p>';
-      echo '<p>'.$obj->mentor->email.'</p>';
-      echo '<p>'.$obj->Profile->profile.'</p>';
-      echo '<p>'.$obj->Profile->code.'</p>';
-      echo '<p>'.$obj->Profile->abbreviation.'</p>';
-      echo '<p>'.$obj->Profile->year.'</p>';
-    } else {
+    } 
+echo '</table>';
+echo '</div>';
+    else {
       $error = "Ongeldige gebruikersnaam of wachtwoord!";
     }
 ?>
