@@ -7,8 +7,8 @@
 
 
 $hostname = '{outlook.office365.com:993/imap/ssl}INBOX';
-$username = $id . '@ll.candea.nl';
-$password = $password;
+$username = 'CC112335@ll.candea.nl';
+$password = 'AirbusA380';
 
 echo $hostname;
 
