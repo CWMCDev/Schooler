@@ -7,7 +7,7 @@ include_once("header.php");
 $json = file_get_contents('http://api.8t2.eu/portal/students/grades/1/'.$_COOKIE['id'].'/'.$_COOKIE['token']);
     $obj = json_decode($json);
     if (isset($obj->classes)){
-      echo '<table class="table table-striped">';
+      echo '<div><table class="table table-striped">';
       foreach ($obj->classes as $class) {
         echo '<tr><td width="100px">'.$class->text.'</td>'; 
         $gradesText = '';
@@ -17,7 +17,7 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/grades/1/'.$_COOKIE
         }
         echo '<td></td></tr>';
       }
-
+      echo '</div>';
     } else {
       $error = "Ongeldige gebruikersnaam of wachtwoord!";
     }
