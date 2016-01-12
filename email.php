@@ -3,7 +3,11 @@
   <title>PHP Test</title>
  </head>
  <body>
- <?php echo '<p>Hello Mail</p>';
+
+ <?php 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+echo '<p>Hello Mail</p>';
 
 
 $hostname = '{outlook.office365.com:993/imap/ssl}INBOXResource';
@@ -14,7 +18,7 @@ echo $hostname;
 
 /* try to connect */
 
-$inbox = imap_open($hostname,$username,$password) or die('Cannot connect to Gmail: ' . imap_last_error());
+$inbox = imap_open($hostname,$username,$password) or die('Cannot connect to Mail: ' . imap_last_error());
 
 echo $inbox;
 
