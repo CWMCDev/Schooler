@@ -8,7 +8,7 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/classlist/'.$_COOKI
     $obj = json_decode($json);
     if (isset($obj->classList)){
     	echo '<div id="container">';
-    	echo '<table class="table table-striped>';
+    	echo '<table class="table table-striped">';
         foreach ($obj->classList as $person) {
           echo '<tr><td>'.$person->name.'</td>';
           echo '<td>'.$person->id.'</td></tr>';
