@@ -1,20 +1,20 @@
 <html>
  <head>
-  <title>PHP Test</title>
+  <title>Schooler - Mail</title>
  </head>
  <body>
  <?php echo '<p>Hello Mail</p>';
 
 
 $hostname = '{outlook.office365.com:993/imap/ssl}INBOX';
-$username = 'CC112335@ll.candea.nl';
-$password = 'AirbusA380';
+$username = $id . '@ll.candea.nl';
+$password = $password;
 
 echo $hostname;
 
 /* try to connect */
 
-$inbox = imap_open($hostname,$username,$password) or die('Cannot connect to Gmail: ' . imap_last_error());
+$inbox = imap_open($hostname,$username,$password) or die('Cannot connect to Outlook: ' . imap_last_error());
 
 echo $inbox;
 
