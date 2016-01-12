@@ -7,7 +7,7 @@ include_once("header.php");
 $json = file_get_contents('http://api.8t2.eu/portal/students/profile/'.$_COOKIE['id'].'/'.$_COOKIE['token']);
     $obj = json_decode($json);
     if (isset($obj->student)){
-      echo '<p>'.$obj->student->name.'</p>';
+      echo '<h1>'.$obj->student->name.'</h1>';
       echo '<p>'.$obj->student->studentnumber.'</p>';
       echo '<p>'.$obj->student->class.'</p>';
       echo '<p>'.$obj->student->birthdate.'</p>';
