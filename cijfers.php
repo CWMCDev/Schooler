@@ -9,16 +9,13 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/grades/1/'.$_COOKIE
     if (isset($obj->classes)){
       echo '<table class="table table-striped">';
       foreach ($obj->classes as $class) {
-        echo '<tr><td>'.$class->text.'</td>'; 
+        echo '<tr><td width="100px">'.$class->text.'</td>'; 
         $gradesText = '';
         foreach($class->grades as $grade) {
-          if ($gradesText == '') {
-            $gradesText .= $grade->Cijfer;
-          } else {
-            $gradesText .= " - ".$grade->Cijfer;
-          }
+          $gradesText = $grade->Cijfer;
+          echo '<td width="25px">'.$gradesText.'</td>';
         }
-        echo '<td>'.$gradesText.'</td></tr>';
+        echo '<td></td></tr>';
       }
 
     } else {
