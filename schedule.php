@@ -7,7 +7,8 @@ if (isset($_COOKIE['ztoken'])) {
   $isCodeSet = true;
 }
 if(!empty($_POST["code"])) {
-  $json = file_get_contents('http://api.8t2.eu/zportal/settoken/'.$_POST["code"]);
+  $context = stream_context_create(array('http' => array('header'=>'Connection: close\r\n')));
+  $json = file_get_contents('http://api.8t2.eu/zportal/settoken/'.$_POST["code"],false,$context);
   $obj = json_decode($json);
   if (!isset($obj->error)){
     setcookie('ztoken', $obj->token, time() + (60 * 60 * 24 * 365), "/");
