@@ -13,7 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $user = substr($_POST['username'],2);
     }
 
-    $json = file_get_contents('http://api.8t2.eu/auth/register/'. $user .'/' . $_POST['password']);
+  $context = stream_context_create(array('http' => array('header'=>'Connection: close\r\n')));
+    $json = file_get_contents('http://api.8t2.eu/auth/register/'. $user .'/' . $_POST['password'],false,$context);
     $obj = json_decode($json);
     if (isset($obj->token)){
       setcookie('id', "cc".$user, time() + (60 * 60 * 24 * 365), "/");
