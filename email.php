@@ -1,9 +1,8 @@
-<html>
- <head>
-  <title>Schooler - Mail</title>
- </head>
- <body>
- <?php echo '<p>Hello Mail</p>';
+<?php
+$title = "Dashboard";
+include_once("header.php");
+
+echo '<p>Hello Mail</p>';
 
 
 $hostname = '{outlook.office365.com:993/imap/ssl}INBOX';
@@ -50,8 +49,5 @@ if($emails) {
 /* close the connection */
 imap_close($inbox);
 
-
-
- ?> 
- </body>
-</html>
+include_once("footer.php");
+?>
