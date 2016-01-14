@@ -1,6 +1,7 @@
 var loadingScreen = $('#loading');
 
-var animation = {
+function startLoadingAnimation(){
+	var square = new Sonic({
 
 		width: 100,
 		height: 50,
@@ -27,13 +28,11 @@ var animation = {
 			['arc', 40, 10, 10, 90, -90],
 			['bezier', 40, 0, 10, 20, 30, 0, 20, 20]
 		]
-	};
+	});
 
-function startLoadingAnimation(){
-	loadingAnimation = new Sonic(animation);
-	document.body.appendChild(loadingAnimation.canvas);
+square.play();
 
-	loadingAnimation.play
+document.body.appendChild(square.canvas);
 }
 
 function stopLoadingAnimation(){
