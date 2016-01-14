@@ -48,6 +48,15 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
       var s = document.createElement("script");
       s.setAttribute("type", "text/javascript");
       s.setAttribute("src", "http://api.8t2.eu/mail/${id}/${token}?callback=parseResponse");
+
+      $.ajax({
+        url: 'http://api.8t2.eu/mail/${id}/${token}',
+        dataType: 'jsonp',
+        success: function(result){
+            $(".mail-count").innerHTML = result.unread;
+        }
+      });
+
       alert("I am an alert box!");
     })
     
