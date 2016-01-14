@@ -11,7 +11,7 @@ function startLoadingAnimation(){
 		trailLength: 1,
 		pointDistance: .03,
 
-		strokeColor: '#FF7B24',
+		strokeColor: '#4A90E3',
 		
 		step: 'fader',
 
