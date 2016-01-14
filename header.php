@@ -8,6 +8,18 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
   // NO Token found
   header('Location: index.php?noToken=true');
 }
+
+if(empty($_COOKIE['unreadMail'])){
+  $context = stream_context_create(array('http' => array('header'=>'Connection: close\r\n')));
+  $json = file_get_contents('http://api.8t2.eu/mail/'.$_COOKIE['id'].'/'.$_COOKIE['token'],false,$context);
+    $obj = json_decode($json);
+    if (isset($obj->unread)){
+      $_COOKIE['unreadMail'] = $obj->unread;
+    } else {
+      $error = "Ongeldige gebruikersnaam of wachtwoord!";
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -59,7 +71,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
             <li><a href="http://foto.ccweb.nl" target="_blank">Activiteiten</a></li> 
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-envelope"></span><span class"badge"> 4</span> Postvak-In </a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-envelope"></span><span class"badge"><?php echo($_COOKIE['unreadMail']); ?> </span> Postvak-In </a></li>
             <li><a href="index.php?destroySession=true"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
           </ul>
         </div>
