@@ -69,6 +69,11 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/profile/'.$_COOKIE[
     else {
       $error = "Ongeldige gebruikersnaam of wachtwoord!";
     }
+
+    echo '<script>
+    $("table").filter(function() {
+    return $(this).text() === "";
+	}).hide();</script>';
 ?>
 
 <?php
