@@ -16,6 +16,7 @@ include_once("header.php");
           alert(result);
         }
       });
+  });
 </script>
 <?php
 include_once("footer.php");
