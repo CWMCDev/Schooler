@@ -53,8 +53,8 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
         dataType: 'jsonp',
         success: function(result){
           var unread = result.unread;
-          $("#mail-count").html('<span class="badge" id="mail-count">'+unread+'</span>')
-          alert("Loaded popup");
+          $("#mail-count").html(unread);
+          $("#mail-count").show();
         }
       });
 
