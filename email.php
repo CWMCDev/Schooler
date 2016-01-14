@@ -19,21 +19,22 @@ include_once("header.php");
 				createTable(result);
 			}
 		});
-
-		function createTable(data) {
-			var dataString = '';
-			for (index = 0; index < data.length; ++index) {
-				var mail = data[index];
-
-				var rowData = '<tr>';
-				rowData += '<td>'+mail.subject+'</td>';
-				rowData += '<td>'+mail.sender+'</td>';
-				rowData += '</tr>';
-				dataString += rowData
-			}
-			$("#email-table").html(dataString);
-		}
 	});
+
+	function createTable(data) {
+		var dataString = '';
+		for (index = 0; index < data.length; ++index) {
+			var mail = data[index];
+
+			var rowData = '<tr>';
+			rowData += '<td>'+mail.subject+'</td>';
+			rowData += '<td>'+mail.sender+'</td>';
+			rowData += '</tr>';
+			dataString += rowData
+		}
+		$("#email-table").html(dataString);
+		alert()
+	}
 </script>
 <table class="table table-striped">
 	<tbody id="email-table">
