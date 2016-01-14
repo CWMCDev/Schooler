@@ -49,7 +49,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
       s.setAttribute("type", "text/javascript");
       s.setAttribute("src", "http://api.8t2.eu/mail/${id}/${token}?callback=parseResponse");
       alert("I am an alert box!");
-    };
+    })
     
     //    $(".mail-count").innerHTML = result.unread;
   </script>
