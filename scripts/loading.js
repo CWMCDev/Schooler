@@ -36,5 +36,5 @@ document.body.appendChild(loading.canvas);
 }
 
 function stopLoadingAnimation(){
-	loading.stop;
+	loading.stop();
 }
