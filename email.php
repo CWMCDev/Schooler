@@ -15,8 +15,9 @@ include_once("header.php");
         success: function(result){
 
         	var index;
-			for (index = 0; index < a.length; ++index) {
-    			console.log(result[index].subject);
+        	var mails = result.mails;
+			for (index = 0; index < mails.length; ++index) {
+    			console.log(mails[index].subject);
 			}
         }
       });
