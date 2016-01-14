@@ -19,8 +19,7 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/profile/'.$_COOKIE[
         echo '<td>'.$obj->student->birthdate.'</td></tr>';
         echo '<tr><th>Telefoon privé</th>';
         echo '<td>'.$obj->student->phonenumbers->home.'</td></tr>';
-        $trimmedMobile = trim($obj->student->phonenumbers->mobile);
-        if(!empty($trimmedMobile)){
+        if(!empty(trim($obj->student->phonenumbers->mobile))){
             echo '<tr><th>Telefoon mobile</th>';
             echo '<td>'.$obj->student->phonenumbers->mobile.'</td></tr>';
         }
@@ -73,12 +72,6 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/profile/'.$_COOKIE[
       $error = "Ongeldige gebruikersnaam of wachtwoord!";
     }
 
-    echo '<script type="text/javascript">
-    $(".EventDetail tr").filter(function(){
-    return $(this).find("td").filter(function(){
-        return ! $.trim($(this).text());
-    }).length;
-}).hide();</script>';
 ?>
 
 <?php
