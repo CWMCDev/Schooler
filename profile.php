@@ -71,9 +71,9 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/profile/'.$_COOKIE[
     }
 
     echo '<script>
-    $("table").filter(function() {
+    $("#results table tbody tr td").filter(function() {
     return $(this).text() === "";
-	}).hide();</script>';
+	}).parent().hide();</script>';
 ?>
 
 <?php
