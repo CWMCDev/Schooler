@@ -65,33 +65,3 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
         </div>
     </div>
   </nav>
-  <!--
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="dashboard.php">
-          <img src="images/schooler_logo.jpg" alt="Brand" id="dashboard-logo"/>
-        </a>
-      </div> 
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <li><a href="dashboard.php">Dashboard</a></li>
-          <li class="dropdown">
-            <a href="#" data-toggle="dropdown">Student<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="cijfers.php">Cijfers</a></li>
-              <li><a href="presention.php">Presentie</a></li>
-              <li><a href="classlist.php">Klassenlijst</a></li>
-              <li><a href="profile.php">Profiel</a></li>
-            </ul>
-          </li>
-          <li><a href="schedule.php">Rooster</a></li>
-          <li><a href="http://foto.ccweb.nl" target="_blank">Activiteiten</a></li> 
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-envelope"></span><span class"badge"> 4</span> Postvak-In </a></li>
-          <li><a href="index.php?destroySession=true"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>-->
