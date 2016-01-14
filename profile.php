@@ -20,7 +20,7 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/profile/'.$_COOKIE[
         echo '<tr><th>Telefoon privé</th>';
         echo '<td>'.$obj->student->phonenumbers->home.'</td></tr>';
         $trimmedMobile = trim($obj->student->phonenumbers->mobile);
-        if(!empty($trimmedMobile), " "){
+        if(!empty($trimmedMobile)){
             echo '<tr><th>Telefoon mobile</th>';
             echo '<td>'.$obj->student->phonenumbers->mobile.'</td></tr>';
         }
