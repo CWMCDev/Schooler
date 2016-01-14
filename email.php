@@ -4,6 +4,7 @@ include_once("header.php");
 ?>
 <script type="text/javascript">
 	$(document).ready( function () {
+		startLoading()
 		var id = readCookie('id');
 		var token = readCookie('token');
 
