@@ -45,19 +45,18 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
       var id = readCookie('id');
       var token = readCookie('token');
 
-      var s = document.createElement("script");
-      s.setAttribute("type", "text/javascript");
-      s.setAttribute("src", "http://api.8t2.eu/mail/${id}/${token}?callback=parseResponse");
+      var url = 'http://api.8t2.eu/mail/${id}/${token}';
+      alert("I am an alert box! to show the url ${url}");
 
       $.ajax({
-        url: 'http://api.8t2.eu/mail/${id}/${token}',
+        url: url,
         dataType: 'jsonp',
         success: function(result){
             $(".mail-count").innerHTML = result.unread;
+            alert("Loaded popup");
         }
       });
 
-      alert("I am an alert box!");
     })
     
     //    $(".mail-count").innerHTML = result.unread;
