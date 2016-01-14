@@ -93,7 +93,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
             <li><a href="http://foto.ccweb.nl" target="_blank">Activiteiten</a></li> 
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Postvak-In <span class="badge hidden" id="mail-count">0</span></a></li>
+            <li><a href="/email.php">Postvak-In <span class="badge hidden" id="mail-count">0</span></a></li>
             <li><a href="index.php?destroySession=true"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
           </ul>
         </div>
