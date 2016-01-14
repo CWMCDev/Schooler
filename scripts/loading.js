@@ -1,7 +1,7 @@
 var loadingScreen = $('#loading');
 
 function startLoadingAnimation(){
-	var square = new Sonic({
+	var infinity = new Sonic({
 
 		width: 100,
 		height: 50,
@@ -30,11 +30,11 @@ function startLoadingAnimation(){
 		]
 	});
 
-square.play();
+infinity.play();
 
-document.body.appendChild(square.canvas);
+document.body.appendChild(infinity.canvas);
 }
 
 function stopLoadingAnimation(){
-	loadingScreen.addClass('hidden');
+	$('canvas').addClass('hidden');
 }

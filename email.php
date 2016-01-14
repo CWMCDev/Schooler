@@ -34,13 +34,13 @@ include_once("header.php");
 			dataString += rowData
 		}
 		$("#email-table").html(dataString);
+		stopLoadingAnimation();
 	}
 </script>
 <table class="table table-striped">
 	<tbody id="email-table">
 	</tbody>
 </table>
-<div id="loading"></div>
 <?php
 include_once("footer.php");
 ?>
