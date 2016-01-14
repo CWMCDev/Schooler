@@ -52,8 +52,9 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
         url: url,
         dataType: 'jsonp',
         success: function(result){
-            $(".mail-count").innerHTML = result.unread;
-            alert("Loaded popup");
+          var unread = result.unread;
+          $("#mail-count").html('<span class="badge" id="mail-count">'+unread+'</span>')
+          alert("Loaded popup");
         }
       });
 
@@ -92,7 +93,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
             <li><a href="http://foto.ccweb.nl" target="_blank">Activiteiten</a></li> 
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Postvak-In <span class="badge hidden mail-count">0</span></a></li>
+            <li><a href="#">Postvak-In <span class="badge hidden" id="mail-count">0</span></a></li>
             <li><a href="index.php?destroySession=true"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
           </ul>
         </div>
