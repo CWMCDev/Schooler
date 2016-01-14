@@ -22,8 +22,8 @@ include_once("header.php");
 
 		function createTable(data) {
 			var tbdy = $('#email-table');
-			for (index = 0; index < mails.length; ++index) {
-				var mail = mails[index];
+			for (index = 0; index < data.length; ++index) {
+				var mail = data[index];
 				var tr = document.createElement('tr');
 				var subjectTD = document.createElement('td');
 				subjectTD.appendChild(document.createTextNode(mail.subject));
