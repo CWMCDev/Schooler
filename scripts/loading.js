@@ -31,8 +31,7 @@ function startLoadingAnimation(){
 	});
 
 loading.play();
-loading.canvas.addClass('pagination-centered');
-document.body.appendChild(loading.canvas);
+$('#loading').html(loading.canvas);
 }
 
 function stopLoadingAnimation(){
