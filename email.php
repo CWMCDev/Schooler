@@ -21,18 +21,17 @@ include_once("header.php");
 		});
 
 		function createTable(data) {
-			var tbdy = $('#email-table');
+			var dataString = '';
 			for (index = 0; index < data.length; ++index) {
 				var mail = data[index];
-				var tr = document.createElement('tr');
-				var subjectTD = document.createElement('td');
-				subjectTD.appendChild(document.createTextNode(mail.subject));
-				tr.appendChild(subjectTD);
-				var senderTD = document.createElement('td');
-				senderTD.appendChild(document.createTextNode(mail.sender));
-				tr.appendChild(senderTD);
-				tbdy.appendChild(tr);
+
+				var rowData = '<tr>';
+				rowData += '<td>'+mail.subject+'</td>';
+				rowData += '<td>'+mail.sender+'</td>';
+				rowData += '</tr>';
+				dataString += rowData
 			}
+			$("#email-table").html(dataString);
 		}
 	});
 </script>
