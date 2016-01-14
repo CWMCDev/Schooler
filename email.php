@@ -16,7 +16,7 @@ include_once("header.php");
 
 				var index;
 				var mails = result.mails;
-				createTable(result);
+				createTable(mails);
 			}
 		});
 	});
