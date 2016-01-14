@@ -41,9 +41,7 @@ include_once("header.php");
 	<tbody id="email-table">
 	</tbody>
 </table>
-<div class="container">
-<div id="loading" class="col-xs-12"></div>
-</div>
+<div id="loading" style="text-align:center"></div>
 <?php
 include_once("footer.php");
 ?>
