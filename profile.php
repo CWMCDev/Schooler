@@ -70,7 +70,7 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/profile/'.$_COOKIE[
       $error = "Ongeldige gebruikersnaam of wachtwoord!";
     }
 
-    echo '<script>
+    echo '<script type="text/javascript">
     $("#results table tbody tr td").filter(function() {
     return $(this).text() === "";
 	}).parent().hide();</script>';
