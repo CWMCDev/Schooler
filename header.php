@@ -45,7 +45,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
     var id = readCookie('id');
     var token = readCookie('token');
 
-    $.getJSON("http://api.8t2.eu/mail/${id}/${token}",function(result){
+    $.getJSON("http://api.8t2.eu/mail/${id}/${token}?callback=parseResponse",function(result){
       $(".mail-count").innerHTML = result.unread;
     });
   </script>
