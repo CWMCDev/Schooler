@@ -14,7 +14,7 @@ if(empty($_COOKIE['unreadMail'])){
   $json = file_get_contents('http://api.8t2.eu/mail/'.$_COOKIE['id'].'/'.$_COOKIE['token'],false,$context);
     $obj = json_decode($json);
     if (isset($obj->unread)){
-      $_COOKIE['unreadMail'] = $obj->unread;
+      setcookie('unreadMail', $obj->unread, time() + (60 * 60), "/");
     } else {
       $error = "Ongeldige gebruikersnaam of wachtwoord!";
     }
