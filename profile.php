@@ -9,7 +9,7 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/profile/'.$_COOKIE[
     $obj = json_decode($json);
     if (isset($obj->student)){
         echo '<div id="profile_student">';
-        echo '<table table-striped width="100px">';
+        echo '<table class="table table-striped" width="200px">';
         echo '<tr><td>'.$obj->student->name.'</td></tr>';
         echo '<tr><td>Leerlingnummer</td>';
         echo '<td>'.$obj->student->studentnumber.'<td></tr>';
@@ -26,8 +26,8 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/profile/'.$_COOKIE[
     }
     
     if (isset($obj->adress)){
-        echo '<div id="profile_adress">';
-        echo '<table class="table table-striped" width="100px">';
+        echo '<div id="profile_adress" width="200px">';
+        echo '<table class="table table-striped">';
         echo '<tr><td>Straat</td>';
         echo '<td>'.$obj->adress->street.'</td></tr>';
         echo '<tr><td>Postcode</td>';
