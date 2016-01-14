@@ -13,7 +13,11 @@ include_once("header.php");
         url: url,
         dataType: 'jsonp',
         success: function(result){
-          alert(result);
+
+        	var index;
+			for (index = 0; index < a.length; ++index) {
+    			console.log(result[index].subject);
+			}
         }
       });
   });
