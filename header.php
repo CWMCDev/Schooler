@@ -71,7 +71,7 @@ if(empty($_COOKIE['unreadMail'])){
             <li><a href="http://foto.ccweb.nl" target="_blank">Activiteiten</a></li> 
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><div class"badge"><?php if(!empty($_COOKIE['unreadMail'])){echo($_COOKIE['unreadMail']);}else{echo'?';} ?> </div> Postvak-In </a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-envelope"></span><span class="badge"><?php if(!empty($_COOKIE['unreadMail'])){echo($_COOKIE['unreadMail']);}else{echo'?';} ?> </span> Postvak-In </a></li>
             <li><a href="index.php?destroySession=true"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
           </ul>
         </div>
