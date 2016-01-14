@@ -72,7 +72,7 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/profile/'.$_COOKIE[
 
     echo '<script type="text/javascript">
     $("#results table tbody tr td").filter(function() {
-    return $(this).text() == "";
+    return $(this).text() == " ";
 	}).parent().hide();</script>';
 ?>
 
