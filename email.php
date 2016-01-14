@@ -33,7 +33,7 @@ include_once("header.php");
 			dataString += rowData
 		}
 		$("#email-table").html(dataString);
-		alert()
+		alert(dataString);
 	}
 </script>
 <table class="table table-striped">
