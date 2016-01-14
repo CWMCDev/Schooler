@@ -22,7 +22,7 @@ include_once("header.php");
 	});
 
 	function createTable(data) {
-		var dataString = '';
+		var dataString = '<tr><th>Onderwerp</th><th>Afzender</th></tr>';
 		for (index = 0; index < data.length; ++index) {
 			var mail = data[index];
 
