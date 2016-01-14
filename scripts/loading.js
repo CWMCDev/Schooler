@@ -37,4 +37,5 @@ document.body.appendChild(loading.canvas);
 
 function stopLoadingAnimation(){
 	loading.stop();
+	$('canvas').addClass('hidden');
 }
