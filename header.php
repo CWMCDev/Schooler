@@ -29,6 +29,8 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
 
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="/scripts/sonic.js"></script>
+  <script src="/scripts/loading.js"></script>
   <link rel="stylesheet" type="text/css" href="dashboard.css">
   <script type="text/javascript">
     function readCookie(name) {
