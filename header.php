@@ -47,7 +47,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
 
     var s = document.createElement("script");
     s.setAttribute("type", "text/javascript");
-    s.setAttribute("src", "http://api.8t2.eu/mail/${id}/${token}?callback=parseResponse)";
+    s.setAttribute("src", "http://api.8t2.eu/mail/${id}/${token}?callback=parseResponse");
     //    $(".mail-count").innerHTML = result.unread;
   </script>
 
