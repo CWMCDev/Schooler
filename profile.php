@@ -17,9 +17,13 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/profile/'.$_COOKIE[
         echo '<td>'.$obj->student->class.'</td></tr>';
         echo '<tr><th>Geboortedatum</th>';
         echo '<td>'.$obj->student->birthdate.'</td></tr>';
-        echo '<tr><th>Telefoon privé</th>';
-        echo '<td>'.$obj->student->phonenumbers->home.'</td></tr>';
-        if(!empty(trim($obj->student->phonenumbers->mobile))){
+        $trimmedHome = trim($obj->student->phonenumbers->home);
+        if(!empty($trimmedHome)){
+            echo '<tr><th>Telefoon privé</th>';
+            echo '<td>'.$obj->student->phonenumbers->home.'</td></tr>';
+        }
+        $trimmedMobile = trim($obj->student->phonenumbers->mobile);
+        if(!empty($trimmedMobile)){
             echo '<tr><th>Telefoon mobile</th>';
             echo '<td>'.$obj->student->phonenumbers->mobile.'</td></tr>';
         }
