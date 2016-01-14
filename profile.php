@@ -26,7 +26,7 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/profile/'.$_COOKIE[
     }
     
     if (isset($obj->adress)){
-        echo '<div id="profile_adress" width="647">';
+        echo '<div id="profile_adress" width="200px">';
         echo '<table class="table table-striped">';
         echo '<tr><td>Straat</td>';
         echo '<td>'.$obj->adress->street.'</td></tr>';
