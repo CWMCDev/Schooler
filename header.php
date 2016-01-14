@@ -9,17 +9,6 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
   header('Location: index.php?noToken=true');
 }
 
-if(empty($_COOKIE['unreadMail'])){
-  $context = stream_context_create(array('http' => array('header'=>'Connection: close\r\n')));
-  $json = file_get_contents('http://api.8t2.eu/mail/'.$_COOKIE['id'].'/'.$_COOKIE['token'],false,$context);
-    $obj = json_decode($json);
-    if (isset($obj->unread)){
-      setcookie('unreadMail', $obj->unread, time() + (60 * 60), "/");
-    } else {
-      $error = "Ongeldige gebruikersnaam of wachtwoord!";
-    }
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +30,26 @@ if(empty($_COOKIE['unreadMail'])){
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="dashboard.css">
+  <script type="text/javascript">
+    function readCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0;i < ca.length;i++) {
+          var c = ca[i];
+          while (c.charAt(0)==' ') c = c.substring(1,c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+      }
+      return null;
+    }
+
+    var id = readCookie('id');
+    var token = readCookie('token');
+
+    $.getJSON("http://api.8t2.eu/mail/${id}/${token}",function(result){
+      $(".mail-count").innerHTML = result.unread;
+    });
+  </script>
+
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -71,7 +80,7 @@ if(empty($_COOKIE['unreadMail'])){
             <li><a href="http://foto.ccweb.nl" target="_blank">Activiteiten</a></li> 
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Postvak-In <span class="badge"><?php if(!empty($_COOKIE['unreadMail'])){echo($_COOKIE['unreadMail']);}else{echo'?';} ?></span></a></li>
+            <li><a href="#">Postvak-In <span class="badge hidden mail-count">0</span></a></li>
             <li><a href="index.php?destroySession=true"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
           </ul>
         </div>
