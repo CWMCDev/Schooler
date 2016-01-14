@@ -52,7 +52,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
         dataType: 'jsonp',
         success: function(result){
           var unread = result.unread;
-          if(unread>0){}
+          if(unread>0){
             $("#mail-count").html(unread);
             $("#mail-count").removeClass('hidden');
           }
