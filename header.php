@@ -45,8 +45,8 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
       var id = readCookie('id');
       var token = readCookie('token');
 
-      var url = 'http://api.8t2.eu/mail/${id}/${token}';
-      alert("I am an alert box! to show the url ${url}");
+      var url = 'http://api.8t2.eu/mail/'+id+'/'+token;
+      alert("I am an alert box! to show the url " + url);
 
       $.ajax({
         url: url,
