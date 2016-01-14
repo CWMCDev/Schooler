@@ -16,6 +16,9 @@ $inbox = imap_open($hostname,$username,$password) or die('Cannot connect to Outl
 /* grab emails */
 $emails = imap_search($inbox,'ALL');
 
+$result = imap_search($connection, 'UNSEEN');
+echo count($result);
+
 /* if emails are returned, cycle through each... */
 if($emails) {
 	
