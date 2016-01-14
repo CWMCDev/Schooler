@@ -31,7 +31,7 @@ var animation = {
 
 function startLoadingAnimation(){
 	loadingAnimation = new Sonic(animation);
-	document.body.appendChild(square.canvas);
+	document.body.appendChild(loadingAnimation.canvas);
 
 	loadingAnimation.play
 }
