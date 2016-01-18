@@ -34,7 +34,6 @@ include_once("header.php");
     var weekData = week.dagen;
 
     console.log(week.week);
-    var div = document.createElement('div');
 
     var dataString =  '<div class="col-xs-12 col-md-6 week-'+weekNumber+'">';
     dataString += '<table class="table table-striped">';

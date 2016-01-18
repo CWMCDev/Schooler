@@ -2,60 +2,73 @@
     $title = "Profile";
     include_once("header.php");
 ?>
+<script type="text/javascript">
+  $(document).ready( function () {
+    startLoadingAnimation();
+    var id = readCookie('id');
+    var token = readCookie('token');
 
-<?php
+    var url = 'http://api.8t2.eu/portal/students/profile/'+id+'/'+token;
+
+    $.ajax({
+      url: url,
+      dataType: 'jsonp',
+      success: function(result){
+        showProfile(result);
+      }
+    });
+  });
+
+  function showProfile (data) {
+    var dataString = '<div class="row"><div class="col-md-6">';
+    dataString += '<table class="table table-striped">';
+    dataString += '<tr><th>Leerlingnummer</th><td>'+data.student.studentnumber+'</td></tr>';
+    dataString += '<tr><th>Klas</th><td>'+data.student.class+'</td></tr>';
+    dataString += '<tr><th>Geboortedatum</th><td>'+data.student.birthdate+'</td></tr>';
+    if(data.student.phonenumbers.home.trim() != ""){
+        dataString += '<tr><th>Telefoon privé</th><td>'+data.student.phonenumbers.home+'</td></tr>';
+    }
+    if(data.student.phonenumbers.mobile.trim() != ""){
+        dataString += '<tr><th>Telefoon mobiel</th><td>'+data.student.phonenumbers.mobile+'</td></tr>';
+    }
+
+    dataString += '</table></div>';
+
+    if(data.hasOwnProperty('address')){
+        dataString += '<div class="col-md-6"><table class="table table-striped">'
+        dataString += '<tr><th>Straat</th><td>'+data.address.street+'</td></tr>';
+        dataString += '<tr><th>Postcode</th><td>'+data.address.zipcode+'</td></tr>';
+        dataString += '<tr><th>Plaats</th><td>'+data.address.residence+'</td></tr>';
+        dataString += '</table></div>';
+    }
+
+    if(data.hasOwnProperty('mentor')){
+        dataString += '<div class="col-md-6"><table class="table table-striped">'
+        dataString += '<tr><th>Mentor</th><td>'+data.mentor.name+'</td></tr>';
+        dataString += '<tr><th>Afkorting</th><td>'+data.mentor.abbreviation+'</td></tr>';
+        dataString += '<tr><th>E-mail</th><td>'+data.mentor.email+'</td></tr>';
+        dataString += '</table></div>';
+    }
+
+    if(data.hasOwnProperty('profile')){
+        dataString += '<div class="col-md-6"><table class="table table-striped">'
+        dataString += '<tr><th>Onderwijstype</th><td>'+data.profile.profile+'</td></tr>';
+        dataString += '<tr><th>Code</th><td>'+data.profile.code+'</td></tr>';
+        dataString += '<tr><th>Afkoring</th><td>'+data.profile.abbreviation+'</td></tr>';
+        dataString += '<tr><th>Leerjaar</th><td>'+data.profile.year+'</td></tr>';
+        dataString += '</table></div>';
+    }
+    $(".container").append(dataString);
+    stopLoadingAnimation();
+  }
+
+</script>
+<div id="loading" style="text-align:center"></div>
+
+<?php/*
 $context = stream_context_create(array('http' => array('header'=>'Connection: close\r\n')));
 $json = file_get_contents('http://api.8t2.eu/portal/students/profile/'.$_COOKIE['id'].'/'.$_COOKIE['token'],false,$context);
     $obj = json_decode($json);
-    if (isset($obj->student)){
-        echo '<div id="profile_student">';
-        echo '<p>Welkom '.$obj->student->name.'</p>';
-        echo '<table class="table table-striped" width="200">';
-        echo '<tr><th>Leerlingnummer</th>';
-        echo '<td>'.$obj->student->studentnumber.'</td></tr>';
-        echo '<tr><th>klas</th>';
-        echo '<td>'.$obj->student->class.'</td></tr>';
-        echo '<tr><th>Geboortedatum</th>';
-        echo '<td>'.$obj->student->birthdate.'</td></tr>';
-        $trimmedHome = trim($obj->student->phonenumbers->home);
-        if(!empty($trimmedHome)){
-            echo '<tr><th>Telefoon privé</th>';
-            echo '<td>'.$obj->student->phonenumbers->home.'</td></tr>';
-        }
-        $trimmedMobile = trim($obj->student->phonenumbers->mobile);
-        if(!empty($trimmedMobile)){
-            echo '<tr><th>Telefoon mobile</th>';
-            echo '<td>'.$obj->student->phonenumbers->mobile.'</td></tr>';
-        }
-        echo '</table>';
-        echo '</div>';
-    }
-    
-    if (isset($obj->adress)){
-        echo '<div id="profile_adress" width="200px">';
-        echo '<table class="table table-striped">';
-        echo '<tr><td>Straat</td>';
-        echo '<td>'.$obj->adress->street.'</td></tr>';
-        echo '<tr><td>Postcode</td>';
-        echo '<td>'.$obj->adress->zipcode.'</td></tr>';
-        echo '<tr><td>Plaats</td>';
-        echo '<td>'.$obj->adress->place.'</td></tr>';
-        echo '</table>';
-        echo '</div>';
-    }
-    
-    if (isset($obj->mentor)){
-        echo '<div id="profile_mentor">';
-        echo '<table class="table table-striped">';
-        echo '<tr><td>Mentor</td>';
-        echo '<td>'.$obj->mentor->name.'</td></tr>';
-        echo '<tr><td>Afkorting</td>';
-        echo '<td>'.$obj->mentor->abbreviation.'</td></tr>';
-        echo '<tr><td>E-mail</td>';
-        echo '<td>'.$obj->mentor->email.'</td></tr>';
-        echo '</table>';
-        echo '</div>';
-    }
     
     if (isset($obj->profile)){
         echo '<div id="profile_profile">';
@@ -74,10 +87,9 @@ $json = file_get_contents('http://api.8t2.eu/portal/students/profile/'.$_COOKIE[
    
     else {
       $error = "Ongeldige gebruikersnaam of wachtwoord!";
-    }
+    }*/
 
 ?>
-
 <?php
     include_once("footer.php");
 ?>

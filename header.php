@@ -101,3 +101,4 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
         </div>
     </div>
   </nav>
+  <div class="container">

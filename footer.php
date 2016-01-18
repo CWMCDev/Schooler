@@ -4,6 +4,6 @@ if(!isset($title) || !$title){
   exit;
 }
 ?>
-
+</div>
 </body>
 </html>
