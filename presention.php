@@ -2,6 +2,7 @@
 $title = "Presention";
 include_once("header.php");
 ?>
+<!--javascript that loads and outputs the presence of the student-->
 <script type="text/javascript">
   $(document).ready( function () {
     startLoadingAnimation();

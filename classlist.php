@@ -2,7 +2,7 @@
 $title = "Profile";
 include_once("header.php");
 ?>
-
+<!--get classlist + output-->
 <script type="text/javascript">
   $(document).ready( function ()  {
     startLoadingAnimation();

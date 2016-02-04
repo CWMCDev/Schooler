@@ -6,7 +6,7 @@ include_once("header.php");
 <div class="alert alert-info alert-dismissible" role="alert" id="mailAlert" style="display: none">
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 </div>
-
+<!--display student name-->
 <?php
 $context = stream_context_create(array('http' => array('header'=>'Connection: close\r\n')));
 $json = file_get_contents('http://api.8t2.eu/portal/students/profile/'.$_COOKIE['id'].'/'.$_COOKIE['token'],false,$context);
@@ -22,6 +22,7 @@ if (isset($obj->student->name)){
 	$error = "Ongeldige gebruikersnaam of wachtwoord!";
 }
 ?>
+<!--container for vacations-->
 <div class="container">
 	<div class="col-md-6 col-sm-12">
 		<div class="panel panel-primary">
@@ -31,7 +32,7 @@ if (isset($obj->student->name)){
 		</div>
 	</div>
 </div>
-
+<!--javascript for mail count and vacations-->
 <script type="text/javascript">
 	function updateUnread(unread){
 		$('#mailAlert').html('Je hebt ' + unread + ' ongelezen email(s).');

@@ -2,6 +2,8 @@
     $title = "Profile";
     include_once("header.php");
 ?>
+
+<!--get student profile and output this data-->
 <script type="text/javascript">
   $(document).ready( function () {
     startLoadingAnimation();

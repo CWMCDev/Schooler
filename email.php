@@ -2,6 +2,8 @@
 $title = "Mail";
 include_once("header.php");
 ?>
+
+<!--script by Kurt Stam to load emails-->
 <script type="text/javascript">
 	$(document).ready( function () {
 		startLoadingAnimation();

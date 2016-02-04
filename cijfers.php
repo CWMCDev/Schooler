@@ -2,6 +2,7 @@
 $title = "Grades";
 include_once("header.php");
 ?>
+<!--form for input periods-->
 <form id="myForm" class="pull-right">
 <label class="radio-inline"><input type="radio" name="radioName" checked="true" value="1" /> 1 </label>
 <label class="radio-inline"><input type="radio" name="radioName" value="2" /> 2 </label>
@@ -10,7 +11,7 @@ include_once("header.php");
 <div id="loading" style="text-align:center"></div>
 
 <div id="grades"></div>
-
+<!--loading and output grades-->
 <script type="text/javascript">
   $(document).ready( function () {
     loadGrades(1);

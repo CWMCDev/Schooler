@@ -70,6 +70,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
 
 </head>
 <body>
+<!--navbar for all pages-->
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -94,8 +95,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
                 <li><a href="profile.php">Profiel</a></li>
               </ul>
             </li>
-            <li><a href="schedule.php">Schedule</a></li>
-            <!--<li><a href="schedule.php">Rooster</a></li>-->
+            <li><a href="schedule.php">Rooster</a></li>
             <li><a href="http://foto.ccweb.nl" target="_blank">Activiteiten</a></li> 
           </ul>
           <ul class="nav navbar-nav navbar-right">
