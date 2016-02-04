@@ -2,6 +2,7 @@ body{
 	height: 100%;
 	background-color:#FFF;
 	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 #dashboard-logo{
