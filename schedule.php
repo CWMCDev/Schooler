@@ -28,6 +28,8 @@ if(!$isCodeSet){
 <?php
 }else{
 ?>
+
+<!--load schedule of student-->
 <script type="text/javascript">
   $(document).ready( function () {
     startLoadingAnimation();
