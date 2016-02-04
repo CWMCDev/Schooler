@@ -1,6 +1,7 @@
 body{
 	height: 100%;
 	background-color:#FFF;
+	background-repeat: no-repeat;
 }
 
 #dashboard-logo{
