@@ -31,12 +31,18 @@ include_once("header.php");
   }
 
   function showClasslist(data) {
+    var dataString = '<div class="col-xs12 col-md-6>';
+    dataString += '<table class="table table-striped">';
+
     for (var person in data.classlist) {
-      datastring += '<tr>'
-      datastring += '<th width="40px"></th>';
+      dataString += '<tr>'
+      dataString += '<th width="40px"></th>';
     }
+    dataString += '</table>';
+    $("body").append(dataString);
   }
 </script>
+<div id="loading" style="text-align:center"></div>
 
 
 
