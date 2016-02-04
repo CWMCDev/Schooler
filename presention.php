@@ -1,5 +1,5 @@
 <?php
-$title = "Presnetion";
+$title = "Presention";
 include_once("header.php");
 ?>
 <script type="text/javascript">
