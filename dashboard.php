@@ -3,7 +3,9 @@ $title = "Dashboard";
 include_once("header.php");
 ?>
 
-<div class="alert alert-info alert-dismissible" role="alert" id="mailAlert" style="display: none"></div>
+<div class="alert alert-info alert-dismissible" role="alert" id="mailAlert" style="display: none">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
 
 <?php
 $context = stream_context_create(array('http' => array('header'=>'Connection: close\r\n')));
