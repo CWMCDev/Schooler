@@ -65,31 +65,6 @@
 </script>
 <div id="loading" style="text-align:center"></div>
 
-<?php/*
-$context = stream_context_create(array('http' => array('header'=>'Connection: close\r\n')));
-$json = file_get_contents('http://api.8t2.eu/portal/students/profile/'.$_COOKIE['id'].'/'.$_COOKIE['token'],false,$context);
-    $obj = json_decode($json);
-    
-    if (isset($obj->profile)){
-        echo '<div id="profile_profile">';
-        echo '<table class="table-striped">';
-        echo '<tr><td>Onderwijstype</td>';
-        echo '<td>'.$obj->profile->profile.'</td></tr>';
-        echo '<tr><td>Code</td>';
-        echo '<td>'.$obj->profile->code.'</td></tr>';
-        echo '<tr><td>Afkorting</td>';
-        echo '<td>'.$obj->profile->abbreviation.'</td></tr>';
-        echo '<tr><td>Leerjaar</td>';
-        echo '<td>'.$obj->profile->year.'</td></tr>';
-        echo '</table>';
-        echo '</div>';
-    } 
-   
-    else {
-      $error = "Ongeldige gebruikersnaam of wachtwoord!";
-    }*/
-
-?>
 <?php
     include_once("footer.php");
 ?>
