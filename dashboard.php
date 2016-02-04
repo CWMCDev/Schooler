@@ -26,7 +26,7 @@ if (isset($obj->student->name)){
 	<div class="col-md-6 col-sm-12">
 		<div class="panel panel-primary">
 			<div class="panel-heading">Vakanties</div>
-			<table class="table table-striped" id="vacation">
+			<table class="table" id="vacation">
 			</table>
 		</div>
 	</div>
@@ -62,10 +62,12 @@ if (isset($obj->student->name)){
 		var dataString = '';
 		for(i = 0; i < data.vacations.length; i++){
 			var vacation = data.vacations[i];
+			var startDate = new Date(vacation.start.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
 			var endDate = new Date(vacation.end.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
-			var now = new Date();
-
-			if(endDate > now){
+			var now = new Date('11-02-2016'.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
+			if(startDate < now && endDate > now){
+				dataString += '<tr class="success"><td>' + vacation.name + '</td><td>' + vacation.start + '</td><td>' + vacation.end + '</td></tr>';
+			}else if(endDate > now){
 				dataString += '<tr><td>' + vacation.name + '</td><td>' + vacation.start + '</td><td>' + vacation.end + '</td></tr>';
 			}
 		}
