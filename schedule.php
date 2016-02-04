@@ -1,25 +1,23 @@
 <?php
-$title = "Profile";
-include_once("header.php");
+$title = "Schedule";
 
-$isCodeSet = false;
-if (isset($_COOKIE['ztoken'])) {
-  $isCodeSet = true;
-}
-if(!empty($_POST["code"])) {
+$isCodeSet = isset($_COOKIE['ztoken']);
+error_log("Code SET: ".$isCodeSet);
+
+if(!$isCodeSet && isset($_POST['code'])){
   $code = str_replace(' ', '', $_POST["code"]);
-  $context = stream_context_create(array('http' => array('header'=>'Connection: close\r\n')));
-  $json = file_get_contents('http://api.8t2.eu/zportal/settoken/'.$code,false,$context);
+  $json = file_get_contents('http://api.8t2.eu/zportal/settoken/'.$code,false);
   $obj = json_decode($json);
   if (!isset($obj->error)){
-    var_dump($obj);
     setcookie('ztoken', $obj->token, time() + (60 * 60 * 24 * 365), "/");
     $isCodeSet = true;
   }else{
-    var_dump("ERROR!");
-    var_dump($obj->error);
+    error_log("ERROR!");
+    error_log($obj->error);
   }
 }
+include_once("header.php");
+
 if(!$isCodeSet){
   echo'
 <div id="ztoken">
