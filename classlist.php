@@ -15,56 +15,28 @@ include_once("header.php");
       url: url,
       dataType: 'jsonp',
       success: function(result){
-
-        var index;
         var classlist = result.classList;
-        createTable(presention);
+        showClasslist(classlist);
       }
     });
   });
 
-  function createTable(data)  {
-    for (var i = 0; i < data.length; i++) {
-      addTable(data[i]);
-    };
-    stopLoadingAnimation();
-  }
-
   function showClasslist(data) {
-    var dataString = '<div class="col-xs12 col-md-6>';
+    var dataString = '<div class="container"><div class="col-xs12 col-md-6">';
     dataString += '<table class="table table-striped">';
-
-    for (var person in data.classlist) {
+    for(i = 0; i < data.length; i++){
+      var person = data[i];
       dataString += '<tr>'
-      dataString += '<th width="40px"></th>';
+      dataString += '<th width="40px">'+person.name+'</th>';
+      dataString += '<td width="40px">'+person.id+'</td>';
+      dataString += '</tr>';
     }
-    dataString += '</table>';
+    dataString += '</table></div></div>';
     $("body").append(dataString);
+    stopLoadingAnimation();
   }
 </script>
 <div id="loading" style="text-align:center"></div>
-
-
-
-
-<?php
-$context = stream_context_create(array('http' => array('header'=>'Connection: close\r\n')));
-$json = file_get_contents('http://api.8t2.eu/portal/students/classlist/'.$_COOKIE['id'].'/'.$_COOKIE['token'],false,$context);
-    $obj = json_decode($json);
-    if (isset($obj->classList)){
-    	echo '<div id="container">';
-    	echo '<table class="table table-striped width="300px">';
-        foreach ($obj->classList as $person) {
-          echo '<tr><td width="100px">'.$person->name.'</td>';
-          echo '<td width="200px">'.$person->id.'</td></tr>';
-        }
-        echo '</table>';
-        echo '</div>';
-    } else {
-      $error = "Ongeldige gebruikersnaam of wachtwoord!";
-    }
-?>
-
 
 <?php
 include_once("footer.php");
