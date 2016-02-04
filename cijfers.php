@@ -2,14 +2,32 @@
 $title = "Grades";
 include_once("header.php");
 ?>
+<form id="myForm" class="pull-right">
+<label class="radio-inline"><input type="radio" name="radioName" checked="true" value="1" /> 1 </label>
+<label class="radio-inline"><input type="radio" name="radioName" value="2" /> 2 </label>
+<label class="radio-inline"><input type="radio" name="radioName" value="3" /> 3 </label>
+</form>
+<div id="loading" style="text-align:center"></div>
+
+<div id="grades"></div>
 
 <script type="text/javascript">
   $(document).ready( function () {
+    loadGrades(1);
+  });
+
+  $('form input').on('change', function() {
+    var val = $('input:checked', 'form').val();
+    console.log(val);
+    loadGrades(val); 
+  });
+
+  function loadGrades(period) {
     startLoadingAnimation();
     var id = readCookie('id');
     var token = readCookie('token');
 
-    var url = 'http://api.8t2.eu/portal/students/grades/1/'+id+'/'+token;
+    var url = 'http://api.8t2.eu/portal/students/grades/'+period+'/'+id+'/'+token;
 
     $.ajax({
       url: url,
@@ -18,19 +36,17 @@ include_once("header.php");
         showGrades(result);
       }
     });
-  });
+  }
 
   function showGrades (data) {
     var maxCount = 8;
     var classes = data.classes;
       for(i = 0; i < classes.length; i++){
         var cls = classes[i];
-        console.log(cls.grades);
         if(cls.grades.length > maxCount){
           maxCount = cls.grades.length;
         }
       }
-    console.log(maxCount);
 
     var dataString = '<div><table class="table table-striped">';
     for (var i = 0; i < classes.length; i++) {
@@ -48,12 +64,11 @@ include_once("header.php");
     };
     dataString += '</div>';
 
-    $(".container").append(dataString);
+    $("#grades").html(dataString);
     stopLoadingAnimation();
   }
 
 </script>
-<div id="loading" style="text-align:center"></div>
 
 <?php
 include_once("footer.php");
