@@ -91,7 +91,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
                 <li><a href="profile.php">Profiel</a></li>
               </ul>
             </li>
-            <li><a href="schedule.php">Rooster</a></li>
+            <!--<li><a href="schedule.php">Rooster</a></li>-->
             <li><a href="http://foto.ccweb.nl" target="_blank">Activiteiten</a></li> 
           </ul>
           <ul class="nav navbar-nav navbar-right">

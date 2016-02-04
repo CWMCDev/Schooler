@@ -2,7 +2,6 @@
 $title = "Schedule";
 
 $isCodeSet = isset($_COOKIE['ztoken']);
-error_log("Code SET: ".$isCodeSet);
 
 if(!$isCodeSet && isset($_POST['code'])){
   $code = str_replace(' ', '', $_POST["code"]);
@@ -19,13 +18,59 @@ if(!$isCodeSet && isset($_POST['code'])){
 include_once("header.php");
 
 if(!$isCodeSet){
-  echo'
+?>
 <div id="ztoken">
   <form action="schedule.php" method="post">
     <input name="code" id="zportal_code" type="text" placeholder="Token">
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
-</div>';
+</div>
+<?php
+}else{
+?>
+<script type="text/javascript">
+  $(document).ready( function () {
+    startLoadingAnimation();
+
+    Date.prototype.getWeekNumber = function(){
+      var d = new Date(+this);
+      d.setHours(0,0,0);
+      d.setDate(d.getDate()+4-(d.getDay()||7));
+      return Math.ceil((((d-new Date(d.getFullYear(),0,1))/8.64e7)+1)/7);
+    };
+
+    var id = readCookie('id');
+    var week = 0;
+    <?php if(isset($_GET['week'])){
+      echo('week = '.$_GET['week'].';');
+    } else {
+      echo '
+      var today = new Date;
+      week = today.getWeekNumber();';
+    }?>
+    console.log(week);
+    var ztoken = readCookie('ztoken');
+    var token = readCookie('token');
+
+    var url = 'http://api.8t2.eu/zportal/schedule/'+week+'/'+ztoken+'/'+id+'/'+token+'';
+
+    $.ajax({
+      url: url,
+      dataType: 'jsonp',
+      success: function(result){
+        showSchedule(result);
+      }
+    });
+  });
+
+  function showSchedule(data){
+    console.log(data);1
+  }
+</script>
+<div id="loading" style="text-align:center"></div>
+
+
+<?php
 }
 ?>
 
