@@ -1,28 +1,59 @@
 <?php
-$title = "Profile";
+$title = "Grades";
 include_once("header.php");
 ?>
 
-<?php
-$context = stream_context_create(array('http' => array('header'=>'Connection: close\r\n')));
-$json = file_get_contents('http://api.8t2.eu/portal/students/grades/1/'.$_COOKIE['id'].'/'.$_COOKIE['token'],false,$context);
-    $obj = json_decode($json);
-    if (isset($obj->classes)){
-      echo '<div><table class="table table-striped">';
-      foreach ($obj->classes as $class) {
-        echo '<tr><td width="100px">'.$class->text.'</td>'; 
-        $gradesText = '';
-        foreach($class->grades as $grade) {
-          $gradesText = $grade->Cijfer;
-          echo '<td width="25px">'.$gradesText.'</td>';
-        }
-        echo '<td></td></tr>';
+<script type="text/javascript">
+  $(document).ready( function () {
+    startLoadingAnimation();
+    var id = readCookie('id');
+    var token = readCookie('token');
+
+    var url = 'http://api.8t2.eu/portal/students/grades/1/'+id+'/'+token;
+
+    $.ajax({
+      url: url,
+      dataType: 'jsonp',
+      success: function(result){
+        showGrades(result);
       }
-      echo '</div>';
-    } else {
-      $error = "Ongeldige gebruikersnaam of wachtwoord!";
-    }
-?>
+    });
+  });
+
+  function showGrades (data) {
+    var maxCount = 8;
+    var classes = data.classes;
+      for(i = 0; i < classes.length; i++){
+        var cls = classes[i];
+        console.log(cls.grades);
+        if(cls.grades.length > maxCount){
+          maxCount = cls.grades.length;
+        }
+      }
+    console.log(maxCount);
+
+    var dataString = '<div><table class="table table-striped">';
+    for (var i = 0; i < classes.length; i++) {
+      var cls = classes[i];
+      dataString += '<tr><th width="100px">' + cls.text + '</th>';
+      for (var j = 0; j < maxCount; j++) {
+        var grade = cls.grades[j];
+        if(typeof grade != 'undefined'){
+          dataString += '<td width="25px">' + grade.Cijfer + '</td>';
+        }else{
+          dataString += '<td width="25px"> </td>';
+        }
+      };
+      dataString += '</tr>';
+    };
+    dataString += '</div>';
+
+    $(".container").append(dataString);
+    stopLoadingAnimation();
+  }
+
+</script>
+<div id="loading" style="text-align:center"></div>
 
 <?php
 include_once("footer.php");
