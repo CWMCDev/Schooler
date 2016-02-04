@@ -64,7 +64,7 @@ if (isset($obj->student->name)){
 			var vacation = data.vacations[i];
 			var startDate = new Date(vacation.start.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
 			var endDate = new Date(vacation.end.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
-			var now = new Date('11-02-2016'.replace( /(\d{2})-(\d{2})-(\d{4})/, "$2/$1/$3"));
+			var now = new Date();
 			if(startDate < now && endDate > now){
 				dataString += '<tr class="success"><td>' + vacation.name + '</td><td>' + vacation.start + '</td><td>' + vacation.end + '</td></tr>';
 			}else if(endDate > now){
