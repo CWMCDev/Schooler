@@ -69,7 +69,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
   </script>
 
 </head>
-<body>
+<body background="/images/background.jpg">
 <!--navbar for all pages-->
   <nav class="navbar navbar-default">
     <div class="container-fluid">
