@@ -52,7 +52,7 @@ if(!$isCodeSet){
     var ztoken = readCookie('ztoken');
     var token = readCookie('token');
 
-    var url = 'http://api.8t2.eu/zportal/schedule/'+week+'/'+ztoken+'/'+id+'/'+token+'';
+    var url = 'http://api.8t2.eu/zportal/schedule/student/self/'+week+'/'+ztoken+'/'+id+'/'+token+'';
 
     $.ajax({
       url: url,
