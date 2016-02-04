@@ -57,6 +57,9 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
           if(unread>0){
             $("#mail-count").html(unread);
             $("#mail-count").removeClass('hidden');
+            if(typeof updateUnread == 'function'){
+              updateUnread(unread);
+            }
           }
         }
       });
