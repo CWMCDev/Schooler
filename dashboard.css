@@ -33,18 +33,26 @@ th {
     color: white;
 }
 
-#grades{
+#grades-table{
 	background-color: #FFF;
+	opacity: 0.9;
 }
 
 #presention{
 	background-color: #FFF;
+	opacity: 0.9;
 }
 
 #classlist{
 	background-color: #FFF;
+	opacity: 0.9;
 }
 
 #profile{
 	background-color: #FFF;
+	opacity: 0.9;
+}
+
+#myForm{
+	color: #FFF;
 }
