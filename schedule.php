@@ -119,7 +119,7 @@ if(!$isCodeSet){
             $week = $_GET['week'];
           }
   
-          $ch = curl_init();
+                    $ch = curl_init();
           curl_setopt($ch, CURLOPT_URL, 'http://api.8t2.eu/zportal/schedule/student/self/'.$week.'/'.$ztoken.'/'.$id.'/'.$token);
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
           curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -142,7 +142,23 @@ if(!$isCodeSet){
               $location .= $l;
             }
       
-            echo '{ id: \''.$lesson->id.'\', start: \''.date("Y-m-d\TH:i:s",$lesson->start).'\', end: \''.date("Y-m-d\TH:i:s",$lesson->end).'\', title: \''.$subject.'\n'.$teacher.'\n'.$location.'\n'.$lesson->status.'\'},<br>';
+            $backgroundColor = '#E0E0E0';
+            if ($lesson->status == 'aanw'){
+              $backgroundColor = '#dff0d8';
+            } elseif ($lesson->status == 'geoorlafw'){
+              $backgroundColor = '#dff0d8';
+            } elseif ($lesson->status == 'melding-only'){
+              $backgroundColor = '#fcf8e3';
+            } elseif ($lesson->status == 'afw'){
+              $backgroundColor = '#f2dede';
+            }
+            
+            if ($lesson->cancelled) {
+              $backgroundColor = 'FF0000';
+            }
+            
+            echo '{ id: \''.$lesson->id.'\', start: \''.date("Y-m-d\TH:i:s",$lesson->start).'\', end: \''.date("Y-m-d\TH:i:s",$lesson->end).'\', title: \''.$subject.'\n'.$teacher.'\n'.$location.'\', backgroundColor: \''.$backgroundColor.'\', textColor: \'black\'},';
+            
           }
         ?>
 			],
