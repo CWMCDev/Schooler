@@ -61,11 +61,13 @@ if(!$isCodeSet){
       dataType: 'jsonp',
       success: function(result){
         showSchedule(result);
+        stopLoadingAnimation();
       }
     });
   });
 
   function showSchedule(data){
+    $("body").append("<p>"+data+"</p>");
     console.log(data);1
   }
 </script>
