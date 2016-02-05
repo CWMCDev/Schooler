@@ -78,7 +78,7 @@ if(!$isCodeSet){
       maxTime: '18:00:00',
       slotLabelFormat: 'HH:mm',
       weekends: false,
-			editable: true,
+			editable: false,
 			selectable: true,
 			eventLimit: true, // allow "more" link when too many events
 			header: {
