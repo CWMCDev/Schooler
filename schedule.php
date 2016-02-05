@@ -19,6 +19,7 @@ include_once("header.php");
 
 if(!$isCodeSet){
 ?>
+
 <div id="ztoken">
   <form action="schedule.php" method="post">
     <input name="code" id="zportal_code" type="text" placeholder="Token">
