@@ -69,70 +69,66 @@ if(!$isCodeSet){
 
   function showSchedule(data){
     $('#calendar').fullCalendar({
-			header: {
-				left: 'prev,next today',
-				center: 'title',
-				right: 'month,agendaWeek,agendaDay'
-			},
-			defaultDate: '2016-01-12',
+    schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
+			defaultView: 'agendaWeek',
+			defaultDate: moment(),
+      height: 800,
+      slotDuration: '00:15:00',
+      minTime: '08:00:00',
+      maxTime: '18:00:00',
+      slotLabelFormat: 'HH:mm',
+      weekends: false,
 			editable: true,
+			selectable: true,
 			eventLimit: true, // allow "more" link when too many events
-			events: [
-				{
-					title: 'All Day Event',
-					start: '2016-01-01'
-				},
-				{
-					title: 'Long Event',
-					start: '2016-01-07',
-					end: '2016-01-10'
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: '2016-01-09T16:00:00'
-				},
-				{
-					id: 999,
-					title: 'Repeating Event',
-					start: '2016-01-16T16:00:00'
-				},
-				{
-					title: 'Conference',
-					start: '2016-01-11',
-					end: '2016-01-13'
-				},
-				{
-					title: 'Meeting',
-					start: '2016-01-12T10:30:00',
-					end: '2016-01-12T12:30:00'
-				},
-				{
-					title: 'Lunch',
-					start: '2016-01-12T12:00:00'
-				},
-				{
-					title: 'Meeting',
-					start: '2016-01-12T14:30:00'
-				},
-				{
-					title: 'Happy Hour',
-					start: '2016-01-12T17:30:00'
-				},
-				{
-					title: 'Dinner',
-					start: '2016-01-12T20:00:00'
-				},
-				{
-					title: 'Birthday Party',
-					start: '2016-01-13T07:00:00'
-				},
-				{
-					title: 'Click for Google',
-					url: 'http://google.com/',
-					start: '2016-01-28'
+			header: {
+				left: 'prev, today',
+				center: 'title',
+				right: 'today, next'
+			},
+			views: {
+				agendaTwoDay: {
+					type: 'agenda',
+					duration: { days: 2 },
+
+					// views that are more than a day will NOT do this behavior by default
+					// so, we need to explicitly enable it
+					groupByResource: true
+
+					//// uncomment this line to group by day FIRST with resources underneath
+					//groupByDateAndResource: true
 				}
-			]
+			},
+
+			//// uncomment this line to hide the all-day slot
+			allDaySlot: false,
+
+			resources: [
+				{ id: 'a', title: 'Day' },
+			],
+			events: [
+				{ id: '1', resourceId: 'a', start: '2016-02-01T09:00:00', end: '2016-02-01T11:00:00', title: 'les 1' },
+				{ id: '1', resourceId: 'a', start: '2016-02-02T09:00:00', end: '2016-02-02T11:00:00', title: 'les 2' },
+				{ id: '1', resourceId: 'a', start: '2016-02-03T09:00:00', end: '2016-02-03T11:00:00', title: 'les 3' },
+				{ id: '1', resourceId: 'a', start: '2016-02-04T09:00:00', end: '2016-02-04T11:00:00', title: 'les 4' },
+				{ id: '1', resourceId: 'a', start: '2016-02-05T09:00:00', end: '2016-02-05T11:00:00', title: 'les 5' }
+			],
+
+			select: function(start, end, jsEvent, view, resource) {
+				console.log(
+					'select',
+					start.format(),
+					end.format(),
+					resource ? resource.id : '(no resource)'
+				);
+			},
+			dayClick: function(date, jsEvent, view, resource) {
+				console.log(
+					'dayClick',
+					date.format(),
+					resource ? resource.id : '(no resource)'
+				);
+			}
 		});
   
     console.log(data);1
