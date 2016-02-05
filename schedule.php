@@ -107,13 +107,36 @@ if(!$isCodeSet){
 				{ id: 'a', title: 'Day' },
 			],
 			events: [
-				{ id: '1', resourceId: 'a', start: '2016-02-01T09:00:00', end: '2016-02-01T11:00:00', title: 'les 1' },
-				{ id: '1', resourceId: 'a', start: '2016-02-02T09:00:00', end: '2016-02-02T11:00:00', title: 'les 2' },
-				{ id: '1', resourceId: 'a', start: '2016-02-03T09:00:00', end: '2016-02-03T11:00:00', title: 'les 3' },
-				{ id: '1', resourceId: 'a', start: '2016-02-04T09:00:00', end: '2016-02-04T11:00:00', title: 'les 4' },
-				{ id: '1', resourceId: 'a', start: '2016-02-05T09:00:00', end: '2016-02-05T11:00:00', title: 'les 5' }
+				<?php
+          $useragent = 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/533.2 (KHTML, like Gecko) Chrome/5.0.342.3 Safari/533.2';
+  
+          $ch = curl_init();
+          curl_setopt($ch, CURLOPT_URL, 'http://api.8t2.eu/zportal/schedule/student/self/5/').$_COOKIE['ztoken'];
+          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+          curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+          curl_setopt($ch, CURLOPT_USERAGENT, $useragent);
+  
+          $schedule = json_decode(curl_exec($ch));
+    
+          foreach ($schedule as $lesson) {
+            $subject = "";
+            $teacher = "";
+            $location = "";
+            foreach ($lesson->subjects as $s) {
+              $subject .= $s;
+            }
+            foreach ($lesson->teachers as $t) {
+              $teacher .= $t;
+            }
+            foreach ($lesson->locations as $l) {
+              $location .= $l;
+            }
+      
+            echo '{ id: \''.$lesson->id.'\', start: \''.date("Y-m-d\TH:i:s",$lesson->start).'\', end: \''.date("Y-m-d\TH:i:s",$lesson->end).'\', title: \''.$subject.'\n'.$teacher.'\n'.$location.'\'},';
+          }
+        ?>
 			],
-
 			select: function(start, end, jsEvent, view, resource) {
 				console.log(
 					'select',
