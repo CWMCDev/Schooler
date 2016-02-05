@@ -49,7 +49,7 @@ include_once("header.php");
         }
       }
 
-    var dataString = '<div><table class="table table-striped">';
+    var dataString = '<div><table class="table table-striped" id="grades-table">';
     for (var i = 0; i < classes.length; i++) {
       var cls = classes[i];
       dataString += '<tr><th width="100px">' + cls.text + '</th>';
