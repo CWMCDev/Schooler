@@ -67,7 +67,7 @@ if(!$isCodeSet){
   });
 
   function showSchedule(data){
-    $("body").append("<p>"+data+"</p>");
+    $("body").append("<p>test</p>");
     console.log(data);1
   }
 </script>
