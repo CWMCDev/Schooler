@@ -69,10 +69,10 @@ if(!$isCodeSet){
 
   function showSchedule(data){
     $('#calendar').fullCalendar({
-     header: {
+			header: {
 				left: 'prev,next today',
 				center: 'title',
-				right: 'agendaWeek,agendaDay'
+				right: 'month,agendaWeek,agendaDay'
 			},
 			defaultDate: '2016-01-12',
 			editable: true,
@@ -133,13 +133,13 @@ if(!$isCodeSet){
 					start: '2016-01-28'
 				}
 			]
-    });
+		});
   
     console.log(data);1
   }
 </script>
 <div id="loading" style="text-align:center"></div>
-<div id="calender"></div>
+<div id="calendar"></div>
 
 <?php
 }
