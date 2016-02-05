@@ -23,7 +23,7 @@
 
   function showProfile (data) {
     var dataString = '<div class="row"><div class="col-md-6">';
-    dataString += '<table class="table table-striped">';
+    dataString += '<table class="table table-striped" id="profile">';
     dataString += '<tr><th>Leerlingnummer</th><td>'+data.student.studentnumber+'</td></tr>';
     dataString += '<tr><th>Klas</th><td>'+data.student.class+'</td></tr>';
     dataString += '<tr><th>Geboortedatum</th><td>'+data.student.birthdate+'</td></tr>';
@@ -37,7 +37,7 @@
     dataString += '</table></div>';
 
     if(data.hasOwnProperty('address')){
-        dataString += '<div class="col-md-6"><table class="table table-striped">'
+        dataString += '<div class="col-md-6"><table class="table table-striped" id="profile">'
         dataString += '<tr><th>Straat</th><td>'+data.address.street+'</td></tr>';
         dataString += '<tr><th>Postcode</th><td>'+data.address.zipcode+'</td></tr>';
         dataString += '<tr><th>Plaats</th><td>'+data.address.residence+'</td></tr>';
@@ -45,7 +45,7 @@
     }
 
     if(data.hasOwnProperty('mentor')){
-        dataString += '<div class="col-md-6"><table class="table table-striped">'
+        dataString += '<div class="col-md-6"><table class="table table-striped" id="profile">'
         dataString += '<tr><th>Mentor</th><td>'+data.mentor.name+'</td></tr>';
         dataString += '<tr><th>Afkorting</th><td>'+data.mentor.abbreviation+'</td></tr>';
         dataString += '<tr><th>E-mail</th><td>'+data.mentor.email+'</td></tr>';
@@ -53,7 +53,7 @@
     }
 
     if(data.hasOwnProperty('profile')){
-        dataString += '<div class="col-md-6"><table class="table table-striped">'
+        dataString += '<div class="col-md-6"><table class="table table-striped" id="profile">'
         dataString += '<tr><th>Onderwijstype</th><td>'+data.profile.profile+'</td></tr>';
         dataString += '<tr><th>Code</th><td>'+data.profile.code+'</td></tr>';
         dataString += '<tr><th>Afkoring</th><td>'+data.profile.abbreviation+'</td></tr>';
