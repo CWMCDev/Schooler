@@ -67,11 +67,12 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
     })
     
   </script>
-  <link href='../fullcalendar.css' rel='stylesheet' />
-  <link href='../fullcalendar.print.css' rel='stylesheet' media='print' />
-  <script src='../lib/moment.min.js'></script>
-  <script src='../lib/jquery.min.js'></script>
-  <script src='../fullcalendar.min.js'></script>
+  <link href='fullcalendar.css' rel='stylesheet' />
+  <link href='scheduler.css' rel='stylesheet' />
+  <script src='moment.js'></script>
+  <script src='jquery.js'></script>
+  <script src='fullcalendar.js'></script>
+  <script src='scheduler.js'></script>
   
 </head>
 <body background="/images/background.jpg">
