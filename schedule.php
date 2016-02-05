@@ -48,13 +48,11 @@ if(!$isCodeSet){
     } else {
       echo '
       var today = new Date;
-      week = today.getWeekNumber();';
+      week = today.getWeekNumber() - 1;';
     }?>
     console.log(week);
     var ztoken = readCookie('ztoken');
     var token = readCookie('token');
-
-    $("body").append('<p>'+week+'</p>');
     
     var url = 'http://api.8t2.eu/zportal/schedule/student/self/'+week+'/'+ztoken+'/'+id+'/'+token+'';
 
@@ -69,7 +67,7 @@ if(!$isCodeSet){
   });
 
   function showSchedule(data){
-    $("body").append("<p>test</p>");
+    $("body").append("<p>"+data+"</p>");
     console.log(data);1
   }
 </script>
