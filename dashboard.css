@@ -33,6 +33,10 @@ th {
     color: white;
 }
 
-.table table-striped{
+#grades{
+	background-color: #FFF;
+}
+
+#presention{
 	background-color: #FFF;
 }
