@@ -33,6 +33,10 @@ th {
     color: white;
 }
 
+.page-header{
+	color: #FFF;
+}
+
 #grades-table{
 	background-color: #FFF;
 	opacity: 0.9;
