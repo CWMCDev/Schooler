@@ -67,7 +67,11 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
     })
     
   </script>
-
+  <link rel='stylesheet' href='fullcalendar/fullcalendar.css' />
+  <script src='lib/jquery.min.js'></script>
+  <script src='lib/moment.min.js'></script>
+  <script src='fullcalendar/fullcalendar.js'></script>
+  
 </head>
 <body background="/images/background.jpg">
 <!--navbar for all pages-->

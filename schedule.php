@@ -67,12 +67,25 @@ if(!$isCodeSet){
   });
 
   function showSchedule(data){
-    $("body").append("<p>"+data+"</p>");
+    $('#calendar').fullCalendar({
+    defaultView: 'agendaDay',
+    events: [
+        // events go here
+    ],
+    resources: [
+        { id: 'a', title: 'Maandag' },
+        { id: 'b', title: 'Dinsdag' },
+        { id: 'c', title: 'Woensdag' },
+        { id: 'd', title: 'Donderdag' },
+        { id: 'e', title: 'Vrijdag'}
+    ]
+  });
+    
     console.log(data);1
   }
 </script>
 <div id="loading" style="text-align:center"></div>
-
+<div id="calender"></div>
 
 <?php
 }
