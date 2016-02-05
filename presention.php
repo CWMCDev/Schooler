@@ -36,8 +36,8 @@ include_once("header.php");
 
     console.log(week.week);
 
-    var dataString =  '<div class="col-xs-12 col-md-6 week-'+weekNumber+'" id="presention">';
-    dataString += '<table class="table table-striped">';
+    var dataString =  '<div class="col-xs-12 col-md-6 week-'+weekNumber+'">';
+    dataString += '<table class="table table-striped" id="presention">';
 
     dataString += '<tr><th width="20px">'+weekNumber+'</th>';
     for (var i = 0; i < 10; i++) {

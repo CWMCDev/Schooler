@@ -23,7 +23,7 @@ include_once("header.php");
 
   function showClasslist(data) {
     var dataString = '<div class="container"><div class="col-xs12 col-md-6">';
-    dataString += '<table class="table table-striped">';
+    dataString += '<table class="table table-striped" id="classlist">';
     for(i = 0; i < data.length; i++){
       var person = data[i];
       dataString += '<tr>'
