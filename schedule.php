@@ -55,7 +55,7 @@ if(!$isCodeSet){
     var ztoken = readCookie('ztoken');
     var token = readCookie('token');
     
-    var url = 'http://api.8t2.eu/zportal/schedule/student/self/'+week+'/'+ztoken+'/'+id+'/'+token+'';
+    var url = 'http://api.8t2.eu/zportal/schedule/student/self/'+week+'/'+ztoken+'/'+id+'/'+token;
 
     $.ajax({
       url: url,
@@ -110,10 +110,17 @@ if(!$isCodeSet){
 				<?php
           $useragent = 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/533.2 (KHTML, like Gecko) Chrome/5.0.342.3 Safari/533.2';
   
-          $token = $_COOKIE['ztoken'];
+          $token = $_COOKIE['token'];
+          $ztoken = $_COOKIE['ztoken'];
+          $id = $_COOKIE['id'];
+          $week = date('W');
+  
+          if(isset($_GET['week'])){
+            $week = $_GET['week'];
+          }
   
           $ch = curl_init();
-          curl_setopt($ch, CURLOPT_URL, 'http://api.8t2.eu/zportal/schedule/student/self/5/'.$token);
+          curl_setopt($ch, CURLOPT_URL, 'http://api.8t2.eu/zportal/schedule/student/self/'.$week.'/'.$ztoken.'/'.$id.'/'.$token);
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
           curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -135,7 +142,7 @@ if(!$isCodeSet){
               $location .= $l;
             }
       
-            echo '{ id: \''.$lesson->id.'\', start: \''.date("Y-m-d\TH:i:s",$lesson->start).'\', end: \''.date("Y-m-d\TH:i:s",$lesson->end).'\', title: \''.$subject.'\n'.$teacher.'\n'.$location.'\'},';
+            echo '{ id: \''.$lesson->id.'\', start: \''.date("Y-m-d\TH:i:s",$lesson->start).'\', end: \''.date("Y-m-d\TH:i:s",$lesson->end).'\', title: \''.$subject.'\n'.$teacher.'\n'.$location.'\n'.$lesson->status.'\'},<br>';
           }
         ?>
 			],
