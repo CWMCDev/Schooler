@@ -118,8 +118,8 @@ if(!$isCodeSet){
           if(isset($_GET['week'])){
             $week = $_GET['week'];
           }
-  
-                    $ch = curl_init();
+          
+          $ch = curl_init();
           curl_setopt($ch, CURLOPT_URL, 'http://api.8t2.eu/zportal/schedule/student/self/'.$week.'/'.$ztoken.'/'.$id.'/'.$token);
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
           curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -158,7 +158,6 @@ if(!$isCodeSet){
             }
             
             echo '{ id: \''.$lesson->id.'\', start: \''.date("Y-m-d\TH:i:s",$lesson->start).'\', end: \''.date("Y-m-d\TH:i:s",$lesson->end).'\', title: \''.$subject.'\n'.$teacher.'\n'.$location.'\', backgroundColor: \''.$backgroundColor.'\', textColor: \'black\'},';
-            
           }
         ?>
 			],
