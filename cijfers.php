@@ -2,6 +2,13 @@
 $title = "Grades";
 include_once("header.php");
 ?>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+</script>
+
 <!--form for input periods-->
 <form id="myForm" class="pull-right">
 <label class="radio-inline"><input type="radio" name="radioName" checked="true" value="1" /> 1 </label>
@@ -11,6 +18,7 @@ include_once("header.php");
 <div id="loading" style="text-align:center"></div>
 
 <div id="grades"></div>
+
 <!--loading and output grades-->
 <script type="text/javascript">
   $(document).ready( function () {
@@ -56,7 +64,7 @@ include_once("header.php");
       for (var j = 0; j < maxCount; j++) {
         var grade = cls.grades[j];
         if(typeof grade != 'undefined'){
-          dataString += '<td width="25px">' + grade.Cijfer + '</td>';
+          dataString += '<td width="25px"><button type="button" class="btn btn-default" data-trigger="click" data-toggle="popover" title="popover title" data-content="And here should be grades">' + grade.Cijfer + '</button></td>';
         }else{
           dataString += '<td width="25px"> </td>';
         }
@@ -70,6 +78,8 @@ include_once("header.php");
   }
 
 </script>
+
+<script type="text/javascript"></script>
 
 <?php
 include_once("footer.php");
