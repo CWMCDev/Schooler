@@ -16,7 +16,9 @@ include_once("header.php");
 <!--loading and output grades-->
 <script type="text/javascript">
   $(document).ready( function () {
-    $('[data-toggle="tooltip"]').tooltip(); 
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
     loadGrades(1);
   });
 
