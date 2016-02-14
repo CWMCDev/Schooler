@@ -13,6 +13,12 @@ include_once("header.php");
 
 <div id="grades"></div>
 
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+</script>
+
 <!--loading and output grades-->
 <script type="text/javascript">
   $(document).ready( function () {
