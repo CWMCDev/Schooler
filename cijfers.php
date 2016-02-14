@@ -71,7 +71,6 @@ include_once("header.php");
     dataString += '</div>';
 
     $("#grades").html(dataString);
-    $('#grades').tooltip(container: 'body');
     stopLoadingAnimation();
   }
 
