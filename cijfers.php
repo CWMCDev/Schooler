@@ -61,7 +61,7 @@ include_once("header.php");
       for (var j = 0; j < maxCount; j++) {
         var grade = cls.grades[j];
         if(typeof grade != 'undefined'){
-          dataString += '<td width="25px"><button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="'+grade.Beschrijving+'\nWeging:'+grade.Weging+'">' + grade.Cijfer + '</button></td>';
+          dataString += '<td width="25px"><button type="button" class="btn btn-default" data-container="body" data-toggle="tooltip" data-placement="top" title="'+grade.Beschrijving+'\nWeging:'+grade.Weging+'">' + grade.Cijfer + '</button></td>';
         }else{
           dataString += '<td width="25px"> </td>';
         }
@@ -71,6 +71,7 @@ include_once("header.php");
     dataString += '</div>';
 
     $("#grades").html(dataString);
+    $('#grades').tooltip(container: 'body');
     stopLoadingAnimation();
   }
 
