@@ -22,7 +22,7 @@ if(!$isCodeSet){
 
 <div id="ztoken">
   <form action="schedule.php" method="post">
-    <input name="code" id="zportal_code" type="text" placeholder="Token">
+    <input name="code" id="zportal_code" type="number" pattern="[0-9]*" inputmode="numeric" placeholder="Token">
     <button type="submit" class="btn btn-default">Submit</button>
   </form>
 </div>
