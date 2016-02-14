@@ -55,19 +55,46 @@ if(!$isCodeSet){
     var ztoken = readCookie('ztoken');
     var token = readCookie('token');
     
-    var url = 'http://api.8t2.eu/zportal/schedule/student/self/'+week+'/'+ztoken+'/'+id+'/'+token;
+    function getData(weekNumber) {
+      var url = 'http://api.8t2.eu/zportal/schedule/student/self/'+weekNumber+'/'+ztoken+'/'+id+'/'+token;
 
-    $.ajax({
-      url: url,
-      dataType: 'jsonp',
-      success: function(result){
-        showSchedule(result);
-        stopLoadingAnimation();
-      }
-    });
+      $.ajax({
+        url: url,
+        dataType: 'jsonp',
+        success: function(result){
+          showSchedule(result);
+          stopLoadingAnimation();
+        }
+      });
+    }
+    
+    getData(week);
   });
 
   function showSchedule(data){
+    var eventString = "";
+    
+    for(var i = 0; i < data.length; i++) {
+      var obj = data[i];
+
+      var subject = "";
+      var teacher = "";
+      var location = "";
+      
+      for (var i = 0; i < obj.subjects.length; i++) {
+        subject += obj.subjects[i];
+      }
+      for (var i = 0; i < obj.teachers.length; i++) {
+        teacher += obj.teachers[i];
+      }
+      for (var i = 0; i < obj.locations.length; i++) {
+        location += obj.locations[i];
+      }
+      
+      
+      eventString += '{ id: \''+obj.id+'\', start: \''+moment(obj.start).format()+'\', end: \''+moment(obj.end).format()+'\', title: \''+subject+'\n'+teacher+'\n'+location+'\', backgroundColor: \'#E0E0E0\', textColor: \'black\'},';
+    }
+    
     $('#calendar').fullCalendar({
     schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
 			defaultView: 'agendaWeek',
@@ -81,10 +108,19 @@ if(!$isCodeSet){
 			editable: false,
 			selectable: true,
 			eventLimit: true, // allow "more" link when too many events
+			customButtons: {
+        nextWeek: {
+            text: 'next',
+            click: function() {
+              week++;
+              getData(week);
+            }
+        }
+      },
 			header: {
 				left: 'prev, today',
 				center: 'title',
-				right: 'today, next'
+				right: 'today, nextWeek'
 			},
 			views: {
 				agendaTwoDay: {
@@ -107,59 +143,7 @@ if(!$isCodeSet){
 				{ id: 'a', title: 'Day' },
 			],
 			events: [
-				<?php
-          $useragent = 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/533.2 (KHTML, like Gecko) Chrome/5.0.342.3 Safari/533.2';
-  
-          $token = $_COOKIE['token'];
-          $ztoken = $_COOKIE['ztoken'];
-          $id = $_COOKIE['id'];
-          $week = date('W');
-  
-          if(isset($_GET['week'])){
-            $week = $_GET['week'];
-          }
-          
-          $ch = curl_init();
-          curl_setopt($ch, CURLOPT_URL, 'http://api.8t2.eu/zportal/schedule/student/self/'.$week.'/'.$ztoken.'/'.$id.'/'.$token);
-          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-          curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-          curl_setopt($ch, CURLOPT_USERAGENT, $useragent);
-  
-          $schedule = json_decode(curl_exec($ch));
-    
-          foreach ($schedule as $lesson) {
-            $subject = "";
-            $teacher = "";
-            $location = "";
-            foreach ($lesson->subjects as $s) {
-              $subject .= $s;
-            }
-            foreach ($lesson->teachers as $t) {
-              $teacher .= $t;
-            }
-            foreach ($lesson->locations as $l) {
-              $location .= $l;
-            }
-      
-            $backgroundColor = '#E0E0E0';
-            if ($lesson->status == 'aanw'){
-              $backgroundColor = '#dff0d8';
-            } elseif ($lesson->status == 'geoorlafw'){
-              $backgroundColor = '#dff0d8';
-            } elseif ($lesson->status == 'melding-only'){
-              $backgroundColor = '#fcf8e3';
-            } elseif ($lesson->status == 'afw'){
-              $backgroundColor = '#f2dede';
-            }
-            
-            if ($lesson->cancelled) {
-              $backgroundColor = 'FF0000';
-            }
-            
-            echo '{ id: \''.$lesson->id.'\', start: \''.date("Y-m-d\TH:i:s",$lesson->start."+01:00").'\', end: \''.date("Y-m-d\TH:i:s",$lesson->end."+01:00").'\', title: \''.$subject.'\n'.$teacher.'\n'.$location.'\', backgroundColor: \''.$backgroundColor.'\', textColor: \'black\'},';
-          }
-        ?>
+				eventString;
 			],
 			select: function(start, end, jsEvent, view, resource) {
 				console.log(
