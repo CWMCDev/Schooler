@@ -68,7 +68,7 @@ if(!$isCodeSet){
           $token = $_COOKIE['token'];
           $ztoken = $_COOKIE['ztoken'];
           $id = $_COOKIE['id'];
-          $week = date('W') + 1;
+          $week = date('W');
   
           if(isset($_GET['week'])){
             $week = $_GET['week'];
