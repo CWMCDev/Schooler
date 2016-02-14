@@ -73,7 +73,6 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
   <script src='jquery.js'></script>
   <script src='fullcalendar.js'></script>
   <script src='scheduler.js'></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   
 </head>
 <body background="/images/background.jpg">
