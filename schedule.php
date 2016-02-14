@@ -146,7 +146,6 @@ if(!$isCodeSet){
 		});
   
     stopLoadingAnimation();
-    console.log(data);1
   }
 </script>
 <div id="loading" style="text-align:center"></div>
