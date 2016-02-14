@@ -121,7 +121,7 @@ if(!$isCodeSet){
             }
             
             if ($lesson->cancelled) {
-              $backgroundColor = 'FF0000';
+              $backgroundColor = '#A51B2A';
             }
             
             echo '{ id: \''.$lesson->id.'\', start: \''.date("Y-m-d\TH:i:s",($lesson->start + (6*3600))).'\', end: \''.date("Y-m-d\TH:i:s",($lesson->end + (6*3600))).'\', title: \''.$subject.'\n'.$teacher.'\n'.$location.'\', backgroundColor: \''.$backgroundColor.'\', textColor: \'black\'},';
