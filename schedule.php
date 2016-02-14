@@ -92,7 +92,7 @@ if(!$isCodeSet){
       }
       
       
-      eventString += '{ id: \''+obj.id+'\', start: \''+moment(obj.start).format()+'\', end: \''+moment(obj.end).format()+'\', title: \''+subject+'\n'+teacher+'\n'+location+'\', backgroundColor: \'#E0E0E0\', textColor: \'black\'},';
+      eventString += { id: obj.id+, start: moment(obj.start).format(), end: moment(obj.end).format(), title: subject+'\n'+teacher+'\n'+location, backgroundColor: '#E0E0E0', textColor: 'black'},;
     }
     
     $('#calendar').fullCalendar({
