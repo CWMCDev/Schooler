@@ -46,6 +46,7 @@ if(!$isCodeSet){
       minTime: '08:00:00',
       maxTime: '18:00:00',
       slotLabelFormat: 'HH:mm',
+      timeFormat: 'H(:mm)'
       weekends: false,
 			editable: false,
 			selectable: true,
@@ -54,17 +55,6 @@ if(!$isCodeSet){
 				left: '',
 				center: 'title',
 				right: ''
-			},
-			views: {
-				agendaTwoDay: {
-					type: 'agenda',
-					duration: { days: 2 },
-					// views that are more than a day will NOT do this behavior by default
-					// so, we need to explicitly enable it
-					groupByResource: true
-					//// uncomment this line to group by day FIRST with resources underneath
-					//groupByDateAndResource: true
-				}
 			},
 			//// uncomment this line to hide the all-day slot
 			allDaySlot: false,
@@ -98,12 +88,25 @@ if(!$isCodeSet){
             $teacher = "";
             $location = "";
             foreach ($lesson->subjects as $s) {
-              $subject .= $s;
+              if ($subject == "") {
+                $subject = $s;
+              } else {
+                $subject .= ' - '.$s;
+              }
             }
             foreach ($lesson->teachers as $t) {
-              $teacher .= $t;
+              if ($teacher == "") {
+                $teacher = $t;
+              } else {
+                $teacher .= ' - '.$t;
+              }
             }
             foreach ($lesson->locations as $l) {
+              if ($lesson == "") {
+                $lesson = $l;
+              } else {
+                $lesson .= ' - '.$l;
+              }
               $location .= $l;
             }
       
