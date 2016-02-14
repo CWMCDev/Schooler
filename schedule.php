@@ -122,7 +122,7 @@ if(!$isCodeSet){
               $backgroundColor = 'FF0000';
             }
             
-            echo '{ id: \''.$lesson->id.'\', start: \''.date("Y-m-d\TH:i:s",$lesson->start).'+06:00'.'\', end: \''.date("Y-m-d\TH:i:s",$lesson->end).'+06:00'.'\', title: \''.$subject.'\n'.$teacher.'\n'.$location.'\', backgroundColor: \''.$backgroundColor.'\', textColor: \'black\'},';
+            echo '{ id: \''.$lesson->id.'\', start: \''.date("Y-m-d\TH:i:s",($lesson->start + (6*3600))).'\', end: \''.date("Y-m-d\TH:i:s",($lesson->end + (6*3600))).'\', title: \''.$subject.'\n'.$teacher.'\n'.$location.'\', backgroundColor: \''.$backgroundColor.'\', textColor: \'black\'},';
           }
         ?>
 			],
