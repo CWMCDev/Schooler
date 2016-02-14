@@ -11,6 +11,12 @@ include_once("header.php");
 </form>
 <div id="loading" style="text-align:center"></div>
 
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+</script>
+
 <div id="grades"></div>
 
 <!--loading and output grades-->
