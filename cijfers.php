@@ -13,15 +13,10 @@ include_once("header.php");
 
 <div id="grades"></div>
 
-<script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip(); 
-});
-</script>
-
 <!--loading and output grades-->
 <script type="text/javascript">
   $(document).ready( function () {
+    $('[data-toggle="tooltip"]').tooltip(); 
     loadGrades(1);
   });
 
@@ -64,7 +59,7 @@ $(document).ready(function(){
       for (var j = 0; j < maxCount; j++) {
         var grade = cls.grades[j];
         if(typeof grade != 'undefined'){
-          dataString += '<td width="25px"><button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="top" data-content="'+grade.Beschrijving+'\nWeging:'+grade.Weging+'">' + grade.Cijfer + '</button></td>';
+          dataString += '<td width="25px"><button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="'+grade.Beschrijving+'\nWeging:'+grade.Weging+'">' + grade.Cijfer + '</button></td>';
         }else{
           dataString += '<td width="25px"> </td>';
         }
