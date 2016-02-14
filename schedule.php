@@ -46,7 +46,7 @@ if(!$isCodeSet){
       minTime: '08:00:00',
       maxTime: '18:00:00',
       slotLabelFormat: 'HH:mm',
-      timeFormat: 'H(:mm)'
+      timeFormat: 'H(:mm)',
       weekends: false,
 			editable: false,
 			selectable: true,
