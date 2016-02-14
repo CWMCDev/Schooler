@@ -15,7 +15,7 @@ include_once("header.php");
 
 <script>
 $(document).ready(function(){
-    $('[data-toggle="popover"]').popover(); 
+    $('[data-toggle="tooltip"]').tooltip(); 
 });
 </script>
 
@@ -64,7 +64,7 @@ $(document).ready(function(){
       for (var j = 0; j < maxCount; j++) {
         var grade = cls.grades[j];
         if(typeof grade != 'undefined'){
-          dataString += '<td width="25px"><button type="button" class="btn btn-default" data-trigger="click" data-toggle="popover" title="popover title" data-content="And here should be grades">' + grade.Cijfer + '</button></td>';
+          dataString += '<td width="25px"><button type="button" class="btn btn-default" data-trigger="click" data-toggle="tooltip" title="popover title" data-content="And here should be grades">' + grade.Cijfer + '</button></td>';
         }else{
           dataString += '<td width="25px"> </td>';
         }
