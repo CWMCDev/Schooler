@@ -46,7 +46,7 @@ if(!$isCodeSet){
       minTime: '08:00:00',
       maxTime: '18:00:00',
       slotLabelFormat: 'HH:mm',
-      timeFormat: 'H(:mm)',
+      timeFormat: 'H:mm',
       weekends: false,
 			editable: false,
 			selectable: true,
@@ -102,12 +102,11 @@ if(!$isCodeSet){
               }
             }
             foreach ($lesson->locations as $l) {
-              if ($lesson == "") {
+              if ($locations == "") {
                 $location = $l;
               } else {
                 $location .= ' - '.$l;
               }
-              $location .= $l;
             }
       
             $backgroundColor = '#E0E0E0';
