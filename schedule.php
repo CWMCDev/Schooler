@@ -34,36 +34,9 @@ if(!$isCodeSet){
 <script type="text/javascript">
   $(document).ready( function () {
     startLoadingAnimation();
-    Date.prototype.getWeekNumber = function(){
-      var d = new Date(+this);
-      d.setHours(0,0,0);
-      d.setDate(d.getDate()+4-(d.getDay()||7));
-      return Math.ceil((((d-new Date(d.getFullYear(),0,1))/8.64e7)+1)/7);
-    };
-    var id = readCookie('id');
-    var week = 0;
-    <?php if(isset($_GET['week'])){
-      echo('week = '.$_GET['week'].';');
-    } else {
-      echo '
-      var today = new Date;
-      week = today.getWeekNumber() - 1;';
-    }?>
-    console.log(week);
-    var ztoken = readCookie('ztoken');
-    var token = readCookie('token');
-    
-    var url = 'http://api.8t2.eu/zportal/schedule/student/self/'+week+'/'+ztoken+'/'+id+'/'+token;
-    $.ajax({
-      url: url,
-      dataType: 'jsonp',
-      success: function(result){
-        showSchedule(result);
-        stopLoadingAnimation();
-      }
-    });
+    showSchedule();
   });
-  function showSchedule(data){
+  function showSchedule(){
     $('#calendar').fullCalendar({
     schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
 			defaultView: 'agendaWeek',
@@ -105,7 +78,7 @@ if(!$isCodeSet){
           $token = $_COOKIE['token'];
           $ztoken = $_COOKIE['ztoken'];
           $id = $_COOKIE['id'];
-          $week = date('W');
+          $week = date('W') + 1;
   
           if(isset($_GET['week'])){
             $week = $_GET['week'];
@@ -170,6 +143,7 @@ if(!$isCodeSet){
 			}
 		});
   
+    stopLoadingAnimation();
     console.log(data);1
   }
 </script>
