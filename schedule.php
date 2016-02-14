@@ -41,7 +41,7 @@ if(!$isCodeSet){
     schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
 			defaultView: 'agendaWeek',
 			defaultDate: moment(),
-      height: 800,
+      height: 1000,
       slotDuration: '00:15:00',
       minTime: '08:00:00',
       maxTime: '18:00:00',
