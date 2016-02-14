@@ -102,7 +102,7 @@ if(!$isCodeSet){
               }
             }
             foreach ($lesson->locations as $l) {
-              if ($locations == "") {
+              if ($location == "") {
                 $location = $l;
               } else {
                 $location .= ' - '.$l;
