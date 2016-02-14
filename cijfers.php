@@ -3,12 +3,6 @@ $title = "Grades";
 include_once("header.php");
 ?>
 
-<script>
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover(); 
-});
-</script>
-
 <!--form for input periods-->
 <form id="myForm" class="pull-right">
 <label class="radio-inline"><input type="radio" name="radioName" checked="true" value="1" /> 1 </label>
