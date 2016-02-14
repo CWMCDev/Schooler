@@ -41,6 +41,7 @@ if(!$isCodeSet){
     schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
 			defaultView: 'agendaWeek',
 			defaultDate: moment(),
+      timezone: 'Europe/Amsterdam',
       height: 800,
       slotDuration: '00:15:00',
       minTime: '08:00:00',
@@ -122,7 +123,7 @@ if(!$isCodeSet){
               $backgroundColor = 'FF0000';
             }
             
-            echo '{ id: \''.$lesson->id.'\', start: \''.date("Y-m-d\TH:i:s",$lesson->start).'+01:00'.'\', end: \''.date("Y-m-d\TH:i:s",$lesson->end).'+01:00'.'\', title: \''.$subject.'\n'.$teacher.'\n'.$location.'\', backgroundColor: \''.$backgroundColor.'\', textColor: \'black\'},';
+            echo '{ id: \''.$lesson->id.'\', start: \''.date("Y-m-d\TH:i:s",$lesson->start).'\', end: \''.date("Y-m-d\TH:i:s",$lesson->end).'\', title: \''.$subject.'\n'.$teacher.'\n'.$location.'\', backgroundColor: \''.$backgroundColor.'\', textColor: \'black\'},';
           }
         ?>
 			],
