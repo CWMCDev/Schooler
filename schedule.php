@@ -44,7 +44,7 @@ if(!$isCodeSet){
       height: 900,
       slotDuration: '00:15:00',
       minTime: '08:00:00',
-      maxTime: '18:00:00',
+      maxTime: '17:00:00',
       slotLabelFormat: 'HH:mm',
       timeFormat: 'H:mm',
       weekends: false,
