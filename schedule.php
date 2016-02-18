@@ -5,7 +5,7 @@ $isCodeSet = isset($_COOKIE['ztoken']);
 
 if(!$isCodeSet && isset($_POST['code'])){
   $code = str_replace(' ', '', $_POST["code"]);
-  $json = file_get_contents('http://api.8t2.eu/zportal/settoken/'.$code,false);
+  $json = file_get_contents('https://api.8t2.eu/zportal/settoken/'.$code,false);
   $obj = json_decode($json);
   if (!isset($obj->error)){
     setcookie('ztoken', $obj->token, time() + (60 * 60 * 24 * 365), "/");
@@ -75,7 +75,7 @@ if(!$isCodeSet){
           }
           
           $ch = curl_init();
-          curl_setopt($ch, CURLOPT_URL, 'http://api.8t2.eu/zportal/schedule/student/self/'.$week.'/'.$ztoken.'/'.$id.'/'.$token);
+          curl_setopt($ch, CURLOPT_URL, 'https://api.8t2.eu/zportal/schedule/student/self/'.$week.'/'.$ztoken.'/'.$id.'/'.$token);
           curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
           curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
