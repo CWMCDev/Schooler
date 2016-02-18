@@ -48,7 +48,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
       var id = readCookie('id');
       var token = readCookie('token');
 
-      var url = 'http://api.8t2.eu/mail/'+id+'/'+token;
+      var url = 'https://api.8t2.eu/mail/'+id+'/'+token;
 
       $.ajax({
         url: url,
@@ -103,7 +103,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
               </ul>
             </li>
             <li><a href="schedule.php">Rooster</a></li>
-            <li><a href="http://foto.ccweb.nl" target="_blank">Activiteiten</a></li> 
+            <li><a href="https://foto.ccweb.nl" target="_blank">Activiteiten</a></li> 
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="/email.php">Postvak-In <span class="badge hidden" id="mail-count">0</span></a></li>
