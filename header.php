@@ -48,23 +48,6 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
       var id = readCookie('id');
       var token = readCookie('token');
 
-      var url = 'http://api.8t2.eu/mail/'+id+'/'+token;
-
-      $.ajax({
-        url: url,
-        dataType: 'jsonp',
-        success: function(result){
-          var unread = result.unread;
-          if(unread>0){
-            $("#mail-count").html(unread);
-            $("#mail-count").removeClass('hidden');
-            if(typeof updateUnread == 'function'){
-              updateUnread(unread);
-            }
-          }
-        }
-      });
-
     })
     
   </script>
