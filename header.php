@@ -48,7 +48,7 @@ if(!isset($_COOKIE['token']) || !isset($_COOKIE['id'])) {
       var id = readCookie('id');
       var token = readCookie('token');
 
-      var url = 'https://api.8t2.eu/mail/'+id+'/'+token;
+      var url = 'http://api.8t2.eu/mail/'+id+'/'+token;
 
       $.ajax({
         url: url,
