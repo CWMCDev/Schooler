@@ -9,7 +9,7 @@ include_once("header.php");
     var id = readCookie('id');
     var token = readCookie('token');
 
-    var url = 'https://api.8t2.eu/portal/students/classlist/'+id+'/'+token;
+    var url = 'http://api.8t2.eu/portal/students/classlist/'+id+'/'+token;
 
     $.ajax({
       url: url,
